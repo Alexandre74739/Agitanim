@@ -1,0 +1,119 @@
+@import '../../variables';
+// Variables issues de ta sélection Figma
+$color-brand-blue: #312C70;    // Le fond du header
+$color-brand-orange: #F1C480;  // Le bouton Contact
+$color-text-white: #FFFFFF;
+$color-text-dark: #19162B;     // Pour le texte dans le bouton orange
+$color-accent-purple: #625E92; // Nuance pour les hovers
+
+$breakpoint-mobile: 1024px;
+
+.header {
+  position: fixed;
+  top: 20px; // Petit espace au dessus pour l'effet "flottant"
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center; // Centre le header sur l'écran
+
+  .header-container {
+    background-color: $color-brand-blue;
+    width: 90%; // Largeur du bandeau
+    max-width: 1200px;
+    height: 80px;
+    border-radius: 20px; // Coins arrondis comme sur ton image
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); // Ombre sous le bandeau
+
+    .logo {
+      color: $color-text-white;
+      font-size: 2rem;
+      font-family: 'Brush Script MT', cursive; // Pour l'aspect "écriture main"
+      margin: 0;
+    }
+  }
+
+  // --- NAVIGATION PC ---
+  .nav-desktop {
+    display: none; // Caché sur mobile
+    align-items: center;
+    gap: 40px;
+
+    @media (min-width: $breakpoint-mobile) {
+      display: flex;
+    }
+
+    a {
+      color: $color-text-white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .btn-contact {
+      background-color: $color-brand-orange;
+      color: $color-text-dark !important; // Texte sombre sur fond clair
+      padding: 12px 30px;
+      border-radius: 15px; // Arrondi du bouton
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+    }
+  }
+
+  // --- MENU BURGER (Visible seulement sur mobile/tablette) ---
+  .burger-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    @media (min-width: $breakpoint-mobile) {
+      display: none;
+    }
+
+    img {
+      width: 40px;
+    }
+  }
+}
+
+// --- MENU MOBILE ---
+.nav-mobile {
+  position: absolute;
+  top: 40px;
+  left: 5%;
+  right: 5%;
+  background: $color-brand-blue;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+  text-align: center;
+
+  @media (min-width: $breakpoint-mobile) {
+    display: none;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    &:last-child { border: none; }
+  }
+}

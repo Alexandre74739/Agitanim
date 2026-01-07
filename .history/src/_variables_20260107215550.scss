@@ -1,0 +1,49 @@
+// COULEURS PRINCIPALES
+$color-primary: #312C70;
+$color-secondary: #F1C480;
+$color-accent: #625E92;
+
+// NUANCES ET FONDS
+$color-bg-light: #F4F3F2;
+$color-bg-secondary: #FDDCAA;
+$color-bg-soft: #AEADC2;
+$color-dark: #19162B;
+
+// BASIQUES
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+// BREAKPOINTS
+$breakpoint-tablet: 1024px;
+$breakpoint-mobile: 768px;
+
+// TYPO MIXIN
+
+@mixin typo-a {
+    color: $color-white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        color: $color-secondary;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 18px;
+    }
+}
+
+@mixin typo-btn-contact {
+    background-color: $color-secondary;
+    color: $color-black;
+    padding: 12px 30px;
+    border-radius: 15px;
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}

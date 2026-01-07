@@ -1,0 +1,32 @@
+@import '../../variables';
+// Variables issues de ta sélection Figma
+$color-brand-blue: #312C70;    // Le fond du header
+$color-brand-orange: #F1C480;  // Le bouton Contact
+$color-text-white: #FFFFFF;
+$color-text-dark: #19162B;     // Pour le texte dans le bouton orange
+$color-accent-purple: #625E92; // Nuance pour les hovers
+
+$breakpoint-mobile: 1024px;
+
+.header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: $color-primary;
+	z-index: 1000;
+	box-shadow: 0 0 8px $color-dark;
+
+	.header-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 24px;
+		height: 80px;
+
+		.logo {
+			color: $color-white;
+		}
+	}
+
+
+}

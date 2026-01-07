@@ -1,0 +1,116 @@
+@import '../../variables';
+
+.header {
+	position: fixed;
+	top: 40px;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+
+	.header-container {
+		background-color: $color-primary;
+		width: 90%;
+		height: 100px;
+		border-radius: 25px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 24px;
+		box-shadow: 0 0 8px $color-dark;
+
+		.logo {
+			position: relative;
+			width: 200px;
+			cursor: pointer;
+			padding: 8px;
+			left: -8px;
+
+			@media (max-width: $breakpoint-tablet) {
+				width: 180px;
+			}
+		}
+
+		@media (max-width: $breakpoint-tablet) {
+			height: 80px;
+		}
+	}
+
+	.nav-desktop {
+		display: none;
+		align-items: center;
+		gap: 24px;
+
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+		}
+
+		a {
+			@include typo-a;
+		}
+
+		.btn-contact {
+			@include typo-btn-contact
+		}
+	}
+
+	.burger-button {
+		background: none;
+		cursor: pointer;
+
+		@media (min-width: $breakpoint-tablet) {
+			display: none;
+		}
+
+		img {
+			width: 52px;
+		}
+	}
+}
+
+.nav-mobile {
+    position: absolute;
+    top: 100px;
+    left: 5%;   // Centrage plus propre sur mobile
+    right: 5%;  // Centrage plus propre sur mobile
+    background: $color-primary;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px; // Un peu moins de padding global pour laisser respirer les liens
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); // Ombre plus profonde pour le relief
+    border: 1px solid rgba(255, 255, 255, 0.1); // Fine bordure pour la définition
+
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+
+    a {
+        @include typo-a;
+        padding: 18px;
+        position: relative; // Nécessaire pour positionner la ligne
+        transition: background 0.3s ease;
+        border-radius: 10px;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.05); // Léger feedback au clic
+        }
+
+        // Création de la ligne de séparation
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 15%;  // La ligne commence à 15% du bord gauche
+            right: 15%; // La ligne s'arrête à 15% du bord droit
+            height: 1px;
+            background: linear-gradient(
+                to right, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent
+            ); // Dégradé pour que la ligne s'efface sur les côtés
+        }
+    }
+}
