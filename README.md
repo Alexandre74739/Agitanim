@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+# Agitanim 🎨✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Agitanim** est une plateforme web dédiée à l'animation jeunesse et à l'inclusion. Ce projet met en avant des solutions ludiques et adaptées pour que chaque enfant, quel que soit son profil, puisse s'épanouir à travers le jeu.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Technologies utilisées
 
-## React Compiler
+Ce projet est propulsé par un stack moderne pour garantir performance, accessibilité et maintenabilité :
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Framework :** [React](https://reactjs.org/) (via [Vite](https://vitejs.dev/))
+* **Langage :** [TypeScript](https://www.typescriptlang.org/) (Typage robuste pour la gestion des projets d'inclusion)
+* **Animations :** [Framer Motion](https://www.framer.com/motion/) (Transitions fluides et organiques)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Installation et lancement en local
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Suivez ces étapes pour configurer l'environnement de développement sur votre machine.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1. Prérequis
+Assurez-vous d'avoir installé [Node.js](https://nodejs.org/) (version 18 ou supérieure).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. Configuration du projet
+Clonez le dépôt ou téléchargez les sources, puis ouvrez votre terminal dans le dossier du projet :
+
+```bash
+# Installation des dépendances
+npm install
+
+# Installation de React 
+npm create vite@latest
+
+# Lancement du serveur en local
+npm run dev
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Le serveur local est visible sur [http://localhost:5173/]
