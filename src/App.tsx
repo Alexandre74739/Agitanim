@@ -11,7 +11,6 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <Router>
-      {/* Pas besoin de <> </> ici car le Router joue déjà le rôle de parent unique */}
       <Header />
 
       <main className="main-content">
@@ -20,9 +19,6 @@ function App() {
           <Route path="/jeux" element={<Jeux />} />
           <Route path="/inclusion" element={<Inclusion />} />
           <Route path="/contact" element={<Contact />} />
-          
-          {/* Optionnel : Redirection si l'utilisateur tape une URL inexistante */}
-          <Route path="*" element={<Home />} />
         </Routes>
       </main>
     </Router>
