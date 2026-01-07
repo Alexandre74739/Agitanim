@@ -25,11 +25,15 @@ Assurez-vous d'avoir installé [Node.js](https://nodejs.org/) (version 18 ou sup
 Clonez le dépôt ou téléchargez les sources, puis ouvrez votre terminal dans le dossier du projet :
 
 ```bash
-# Installation des dépendances
+# Installation des dépendances + SCSS
 npm install
+npm install -D sass-embedded
 
 # Installation de React 
 npm create vite@latest
+
+# Création des pages séparées
+npm install react-router-dom
 
 # Lancement du serveur en local
 npm run dev
