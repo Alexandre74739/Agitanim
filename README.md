@@ -35,4 +35,4 @@ npm create vite@latest
 npm run dev
 
 ```
-Le serveur local est visible sur [http://localhost:5173/]
+Le serveur local est visible sur [http://localhost:5173/](http://localhost:5173/)
