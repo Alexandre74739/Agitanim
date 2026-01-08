@@ -1,0 +1,26 @@
+section {
+    background-color: $color-bg-light; // Remplace le rouge ;)
+    padding: 80px 0; // Donne de l'air en haut et en bas de la section
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto; // Centre le container dans la page
+
+        h1 {
+            @include typo-h1;
+            margin-bottom: 32px; // L'espace sous le titre
+            max-width: 900px;    // Évite que le titre soit trop large sur PC
+        }
+
+        p {
+            @include typo-p;
+            margin-bottom: 48px; // L'espace sous le texte (avant les boutons)
+            max-width: 750px;    // Taille idéale pour la lecture (environ 70-80 caractères)
+        }
+    }
+}

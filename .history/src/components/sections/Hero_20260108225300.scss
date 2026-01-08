@@ -1,0 +1,46 @@
+@import '../../variables';
+
+.hero {
+    background-color: red; // Ton fond actuel
+    position: relative;    // IMPORTANT : définit le référentiel pour tes futures icônes en absolute
+    width: 100%;
+    min-height: 100vh;     // Prend toute la hauteur de l'écran
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    overflow: hidden;      // Évite les scrolls si tes futures formes dépassent un peu
+
+    .container {
+        // --- GESTION DE LA LARGEUR ---
+        width: 90%; 
+        max-width: $breakpoint-tablet; // Ta limite imposée
+        
+        // --- CENTRAGE INTERNE ---
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        z-index: 2; // Pour rester au-dessus des futures formes de fond
+
+        h1 {
+            @include typo-h1;
+            margin-bottom: 32px;
+            width: 100%; 
+        }
+
+        p {
+            @include typo-p;
+            margin-bottom: 48px;
+            // On limite la largeur du texte pour la lisibilité sans marges forcées
+            max-width: 800px; 
+        }
+
+        // Le composant Buttons sera naturellement centré ici grâce au flex column + align-items center
+    }
+
+    // --- PRÉPARATION POUR TES ICÔNES ET FORMES ---
+    .icon-contact, .icon-handicap, .icon-scroll {
+        position: absolute;
+        z-index: 3; // Au-dessus du texte ou ajustable selon le design
+    }
+}

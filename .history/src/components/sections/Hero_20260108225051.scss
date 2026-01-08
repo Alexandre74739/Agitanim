@@ -1,0 +1,36 @@
+@import '../../variables';
+
+section {
+    background-color: red;
+    width: 100%;
+    padding: 100px 0;        // Donne de l'espace en haut et en bas
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        
+        // C'est ici qu'on définit la largeur maximale
+        width: 90%; 
+        max-width: $breakpoint-tablet; 
+        
+        // Empêche le container de bouger
+        margin: 0 auto; 
+
+        h1 {
+            @include typo-h1;
+            margin-bottom: 32px;
+            width: 100%; // Prend toute la largeur du container
+        }
+
+        p {
+            @include typo-p;
+            margin-bottom: 48px;
+            
+            // Au lieu de margin: 0 12.5%, on utilise max-width
+            // Cela évite que le texte ne bouge ou ne se décale
+            max-width: 80%; 
+        }
+    }
+}

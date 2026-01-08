@@ -1,0 +1,34 @@
+@import '../../variables';
+
+.hero {
+    background-color: $color-bg-light; // Remplace le rouge ;)
+    width: 100%;
+    min-height: 80vh; // Donne une hauteur minimale pour que le contenu respire
+    display: flex;
+    justify-content: center; // Centre horizontalement le container
+    align-items: center;     // Centre verticalement le container
+    padding: 80px 0;         // Espace interne en haut/bas
+
+    .container {
+        width: 90%;          // Prend 90% de la largeur sur mobile
+        max-width: 1000px;   // Empêche le texte de devenir trop large sur PC
+        margin: 0 auto;      // Sécurité : centre le bloc si le parent n'est pas en flex
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        h1 {
+            @include typo-h1;
+            margin-bottom: 32px;
+            // Pas de marge latérale en %, le max-width du container gère tout
+        }
+
+        p {
+            @include typo-p;
+            margin-bottom: 48px;
+            max-width: 800px; // Largeur de lecture idéale
+            // On retire le margin: 0 12.5% qui risque de briser le centrage
+        }
+    }
+}

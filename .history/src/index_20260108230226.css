@@ -1,0 +1,17 @@
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+}
