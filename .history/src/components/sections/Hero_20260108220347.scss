@@ -1,0 +1,13 @@
+@import '../../variables';
+
+section {
+    background-color: red;
+
+    h1 {
+        @include typo-h1;
+    }
+
+    p {
+        @include typo-p;
+    }
+}

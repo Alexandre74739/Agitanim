@@ -1,0 +1,119 @@
+// TYPOGRAPHIES
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+$main-font: "Lexend Deca", sans-serif;
+
+// COULEURS PRINCIPALES
+$color-primary: #312C70;
+$color-secondary: #F1C480;
+$color-accent: #625E92;
+
+// NUANCES ET FONDS
+$color-bg-light: #F4F3F2;
+$color-bg-secondary: #FDDCAA;
+$color-bg-soft: #AEADC2;
+$color-dark: #19162B;
+
+// BASIQUES
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+// BREAKPOINTS
+$breakpoint-tablet: 1024px;
+$breakpoint-mobile: 768px;
+
+// TYPO MIXIN
+
+@mixin typo-a {
+    position: relative;
+    color: $color-white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        color: $color-secondary;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 18px;
+    }
+}
+
+@mixin typo-btn-contact {
+    background-color: $color-secondary;
+    color: $color-primary;
+    width: 150px;
+    height: 60px;
+    border-radius: 15px;
+    ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        color: $color-primary;
+        background-color: $color-bg-secondary;
+    }
+}
+
+@mixin typo-h1 {
+    font-size: 64px;
+    color: $color-dark;
+    font-family: $main-font;
+    font-weight: bold;
+    line-height: 1.1;
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 48px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 32px;
+    }
+}
+
+@mixin typo-h2 {
+    font-size: 40px;
+    color: $color-dark;
+    font-family: $main-font;
+    font-weight: bold;
+    line-height: 1.2;
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 32px;
+
+        @media (max-width: $breakpoint-mobile) {
+            font-size: 24px;
+        }
+    }
+    
+}
+
+@mixin typo-h3 {
+    font-size: 28px;
+    color: $color-dark;
+    font-family: $main-font;
+    font-weight: bold;
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 24px;
+
+        @media (max-width: $breakpoint-mobile) {
+            font-size: 20px;
+        }
+    }
+}
+
+@mixin typo-p {
+    font-size: 20px;
+    color: $color-dark;
+    font-family: $main-font;
+    font-weight: normal;
+    line-height: 1.6;
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+    }
+}
