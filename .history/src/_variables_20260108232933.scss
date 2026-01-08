@@ -1,0 +1,180 @@
+// TYPOGRAPHIES
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+$main-font: "Lexend Deca", sans-serif;
+
+// COULEURS PRINCIPALES
+$color-primary: #312C70;
+$color-secondary: #F1C480;
+$color-accent: #625E92;
+
+// NUANCES ET FONDS
+$color-bg-light: #F4F3F2;
+$color-bg-secondary: #FDDCAA;
+$color-bg-soft: #AEADC2;
+$color-dark: #19162B;
+
+// BASIQUES
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+// BREAKPOINTS
+$breakpoint-tablet: 1024px;
+$breakpoint-mobile: 768px;
+
+// TYPO MIXIN
+
+@mixin typo-a {
+    position: relative;
+    color: $color-white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: $main-font;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        color: $color-secondary;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 16px;
+    }
+}
+
+@mixin typo-btn-contact {
+    background-color: $color-secondary;
+    color: $color-primary;
+    font-weight: bold;
+    font-size: 20px;
+    width: 150px;
+    height: 55px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        color: $color-primary;
+        background-color: $color-bg-secondary;
+    }
+}
+
+@mixin typo-h1 {
+    font-size: 64px;
+    color: $color-dark;
+    font-family: $main-font;
+    font-weight: bold;
+    line-height: 1.1;
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 48px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 32px;
+    }
+}
+
+@mixin typo-h2 {
+    font-size: 40px;
+    color: $color-dark;
+    font-family: $main-font;
+    font-weight: bold;
+    line-height: 1.2;
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 32px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 24px;
+    }
+}
+
+@mixin typo-h3 {
+    font-size: 28px;
+    color: $color-dark;
+    font-family: $main-font;
+    font-weight: bold;
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 24px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 20px;
+    }
+}
+
+@mixin typo-p {
+    font-size: 20px;
+    color: $color-primary;
+    color: $color-primary;
+    font-family: $main-font;
+    font-weight: normal;
+    line-height: 1.5;
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+    }
+}
+
+@mixin typo-primary-btn {
+    background-color: $color-secondary;
+    color: $color-primary;
+    border: none;
+    border-radius: 18px; // Un peu plus arrondi pour le côté moderne
+    font-family: $main-font;
+    font-weight: 800;
+    font-size: 20px;
+    padding: 20px 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba($color-secondary, 0.2);
+
+    &:hover {
+        background-color: $color-bg-secondary;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 18px;
+        padding: 16px 32px;
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@mixin typo-secondary-btn {
+    background-color: transparent;
+    color: $color-white;
+    border-radius: 18px;
+    font-family: $main-font;
+    font-weight: 800;
+    font-size: 20px;
+    padding: 16px 45px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        background-color: rgba($color-white, 0.1);
+        border-color: $color-secondary;
+        color: $color-secondary;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 18px;
+        padding: 14px 29px;
+        width: 100%;
+        max-width: 320px;
+    }
+}

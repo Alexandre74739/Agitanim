@@ -1,0 +1,22 @@
+@import '../../variables';
+
+.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    .primary-btn {
+        @include typo-primary-btn;
+    }
+
+    .secondary-btn {
+        @include typo-secondary-btn;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        flex-direction: column;
+        gap: 16px;              // Espacement réduit pour mobile
+        width: 100%;            // Pour que les boutons puissent prendre toute la largeur
+    }
+}

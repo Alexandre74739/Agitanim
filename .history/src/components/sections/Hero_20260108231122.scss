@@ -1,0 +1,43 @@
+@import '../../variables';
+
+.hero {
+    background-color: red; 
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;     // Centre horizontalement (C'est ce qui règle ton problème)
+    
+    padding: 0 20px;
+    overflow: hidden;
+
+    .container {
+        // Supprime les marges forcées qui pourraient décaler le bloc
+        margin: 0; 
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        // Largeur maximale demandée
+        width: 100%;
+        max-width: $breakpoint-tablet; 
+        
+        z-index: 2;
+
+        h1 {
+            @include typo-h1;
+            margin-bottom: 32px;
+        }
+
+        p {
+            @include typo-p;
+            margin-bottom: 48px;
+            // On centre le texte à l'intérieur du paragraphe
+            max-width: 800px; 
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@import '../../variables';
+
+.btns {
+    gap: ;
+    .primary-btn {
+    @include typo-primary-btn;
+}
+
+.secondary-btn {
+    @include typo-secondary-btn;
+}
+}
