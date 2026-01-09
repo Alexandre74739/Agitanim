@@ -32,6 +32,8 @@ function Hero() {
           <img src={fleches} alt="Scroll" />
         </a>
       </div>
+
+
     </section>
   );
 }

@@ -21,17 +21,19 @@ function Hero() {
 
       <div className="icons">
         <Link to="/contact" className="icon-contact">
-          <img src={contact} alt="Contact" />
-        </Link>
+        <img src={contact} alt="Contact" />
+      </Link>
 
-        <Link to="/inclusion" className="icon-handicap">
-          <img src={handicap} alt="Handicap" />
-        </Link>
+      <Link to="/inclusion" className="icon-handicap">
+        <img src={handicap} alt="Handicap" />
+      </Link>
 
-        <a href="#prochaine-section" className="icon-scroll">
-          <img src={fleches} alt="Scroll" />
-        </a>
+      <a href="#prochaine-section" className="icon-scroll">
+        <img src={fleches} alt="Scroll" />
+      </a>
       </div>
+
+      
     </section>
   );
 }

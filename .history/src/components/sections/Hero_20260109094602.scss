@@ -34,20 +34,23 @@
 
     .icons {
         width: 100%;
-        max-width: $breakpoint-desktop;
-        position: absolute;
-        left: 50%;
-        top: 0;
-        bottom: 0;
-        transform: translateX(-50%);
-        pointer-events: none;
-        z-index: 5;
+    max-width: $breakpoint-tablet;
+    
+    // 2. On centre la div pour qu'elle soit pile sur le container
+    position: absolute; 
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+    
+    // 3. On désactive le clic sur la div parente pour ne pas bloquer les boutons dessous
+    pointer-events: none; 
+    z-index: 5;
 
         .icon-contact,
         .icon-handicap,
         .icon-scroll {
             position: absolute;
-            pointer-events: auto;
             background-color: $color-white;
             border-radius: 100%;
             box-shadow: 0 0 12px $color-primary;
@@ -59,18 +62,12 @@
 
             &:hover {
                 box-shadow: 0 0 20px $color-primary;
-                transform: translateY(-4px);
             }
 
             img {
                 width: 64px;
                 height: 64px;
                 object-fit: contain;
-
-                @media (max-width: $breakpoint-desktop) {
-                    width: 40px;
-                    height: 40px;
-                }
             }
         }
 
@@ -80,17 +77,13 @@
         }
 
         .icon-handicap {
-            top: 33%;
+            top: 35%;
             right: 8%;
         }
 
         .icon-scroll {
             top: 80%;
             left: 20%;
-        }
-
-        @media (max-width: $breakpoint-tablet) {
-            display: none;
         }
     }
 

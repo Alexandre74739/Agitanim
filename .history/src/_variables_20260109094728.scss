@@ -18,7 +18,19 @@ $color-white: #FFFFFF;
 $color-black: #000000;
 
 // BREAKPOINTS
-$breakpoint-desktop: 1280px;
+$breakpoint-desktop: width: 100%;
+    max-width: $breakpoint-tablet;
+    
+    // 2. On centre la div pour qu'elle soit pile sur le container
+    position: absolute; 
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+    
+    // 3. On désactive le clic sur la div parente pour ne pas bloquer les boutons dessous
+    pointer-events: none; 
+    z-index: 5;
 $breakpoint-tablet: 1024px;
 $breakpoint-mobile: 768px;
 
