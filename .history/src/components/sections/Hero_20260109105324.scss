@@ -125,15 +125,11 @@
 
             @media (max-width: $breakpoint-desktop) {
                 left: -420px;
+                
             }
 
             @media (max-width: $breakpoint-tablet) {
                 left: -500px;
-            }
-
-            @media (max-width: $breakpoint-mobile) {
-                width: 55vw;
-                left: -40%;
             }
         }
 
@@ -142,7 +138,7 @@
             right: 0;
 
             @media (max-width: $breakpoint-tablet) {
-                width: 66vw;
+                width: 50vw;
             }
         }
     }

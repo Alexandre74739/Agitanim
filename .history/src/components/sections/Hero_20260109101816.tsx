@@ -37,7 +37,7 @@ function Hero() {
 
       <div className="forms">
       <img src={form1} className="form1" alt="form" />
-      <img src={form2} className="form2" alt="form" />
+      <img src={form2} className="form1" alt="form" />
       </div>
     </section>
   );

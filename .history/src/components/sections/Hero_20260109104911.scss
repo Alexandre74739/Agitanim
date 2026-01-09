@@ -130,21 +130,25 @@
             @media (max-width: $breakpoint-tablet) {
                 left: -500px;
             }
-
-            @media (max-width: $breakpoint-mobile) {
-                width: 55vw;
-                left: -40%;
-            }
         }
 
         .form2 {
-            bottom: 0;
-            right: 0;
+        bottom: 0;
+        right: 0;
+        width: 25vw;
+        max-width: 500px;
 
-            @media (max-width: $breakpoint-tablet) {
-                width: 66vw;
-            }
+        @media (max-width: $breakpoint-tablet) {
+            width: 35vw;
+            bottom: -5%;
+            right: -5%;
         }
+
+        @media (max-width: $breakpoint-mobile) {
+            width: 50vw;
+            opacity: 0.5;
+        }
+    }
     }
 
 }

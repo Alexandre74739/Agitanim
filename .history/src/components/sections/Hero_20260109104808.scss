@@ -103,48 +103,59 @@
     }
 
     .forms {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1; // -1000 est un peu excessif, -1 suffit pour passer derrière
+
+    .form1,
+    .form2 {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
         pointer-events: none;
-        z-index: -1000;
+        object-fit: contain;
+        transition: all 0.4s ease-in-out;
+    }
 
-        .form1,
-        .form2 {
-            position: absolute;
-            pointer-events: none;
-            object-fit: contain;
+    .form1 {
+        top: 50%;
+        left: 0;
+        // On utilise translateX pour sortir la forme de 30% de sa propre largeur
+        // Ainsi, elle ne disparaît jamais totalement
+        transform: translate(-30%, -50%);
+        width: 20vw;
+        max-width: 400px;
+
+        @media (max-width: $breakpoint-tablet) {
+            width: 30vw; // On augmente le ratio pour qu'elle reste visible
+            transform: translate(-40%, -50%);
         }
 
-        .form1 {
-            top: 50%;
-            left: -280px;
-            transform: translateY(-50%);
-
-            @media (max-width: $breakpoint-desktop) {
-                left: -420px;
-            }
-
-            @media (max-width: $breakpoint-tablet) {
-                left: -500px;
-            }
-
-            @media (max-width: $breakpoint-mobile) {
-                width: 55vw;
-                left: -40%;
-            }
-        }
-
-        .form2 {
-            bottom: 0;
-            right: 0;
-
-            @media (max-width: $breakpoint-tablet) {
-                width: 66vw;
-            }
+        @media (max-width: $breakpoint-mobile) {
+            width: 40vw;
+            opacity: 0.5; // On réduit l'opacité sur mobile pour la lisibilité
         }
     }
+
+    .form2 {
+        bottom: 0;
+        right: 0;
+        width: 25vw;
+        max-width: 500px;
+
+        @media (max-width: $breakpoint-tablet) {
+            width: 35vw;
+            bottom: -5%;
+            right: -5%;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            width: 50vw;
+            opacity: 0.5;
+        }
+    }
+}
 
 }

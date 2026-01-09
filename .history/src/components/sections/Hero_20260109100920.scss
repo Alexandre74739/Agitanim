@@ -28,11 +28,7 @@
         p {
             @include typo-p;
             margin-bottom: 48px;
-            max-width: $breakpoint-mobile;
-
-            @media (max-height: $breakpoint-tablet) {
-                max-width: 80%;
-            }
+            max-width: 800px;
         }
     }
 
@@ -62,7 +58,7 @@
             transition: 0.3s ease-in-out;
 
             &:hover {
-                box-shadow: 0 0 20px $color-secondary;
+                box-shadow: 0 0 20px $color-primary;
                 transform: translateY(-4px);
             }
 
@@ -93,57 +89,12 @@
             left: 20%;
 
             @media (max-height: $breakpoint-tablet) {
-                top: 66%;
+                top: 50px;
             }
         }
 
         @media (max-width: $breakpoint-tablet) {
             display: none;
-        }
-    }
-
-    .forms {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1000;
-
-        .form1,
-        .form2 {
-            position: absolute;
-            pointer-events: none;
-            object-fit: contain;
-        }
-
-        .form1 {
-            top: 50%;
-            left: -280px;
-            transform: translateY(-50%);
-
-            @media (max-width: $breakpoint-desktop) {
-                left: -420px;
-            }
-
-            @media (max-width: $breakpoint-tablet) {
-                left: -500px;
-            }
-
-            @media (max-width: $breakpoint-mobile) {
-                width: 55vw;
-                left: -40%;
-            }
-        }
-
-        .form2 {
-            bottom: 0;
-            right: 0;
-
-            @media (max-width: $breakpoint-tablet) {
-                width: 66vw;
-            }
         }
     }
 

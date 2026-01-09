@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import contact from "../../assets/icon-contact.png";
 import fleches from "../../assets/icon-fleche-double.png";
 import handicap from "../../assets/icon-handicap.png";
-import form1 from "../../assets/forme1.png";
-import form2 from "../../assets/forme2.png";
+import form1 from "../../assets/";
+import form2 from "../../assets/icon-handicap.png";
 import "./Hero.scss";
 
 function Hero() {
@@ -36,8 +36,7 @@ function Hero() {
       </div>
 
       <div className="forms">
-      <img src={form1} className="form1" alt="form" />
-      <img src={form2} className="form2" alt="form" />
+
       </div>
     </section>
   );

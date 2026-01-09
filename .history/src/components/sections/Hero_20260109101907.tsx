@@ -40,6 +40,7 @@ function Hero() {
       <img src={form2} className="form2" alt="form" />
       </div>
     </section>
+    
   );
 }
 

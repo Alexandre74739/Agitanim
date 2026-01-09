@@ -29,10 +29,6 @@
             @include typo-p;
             margin-bottom: 48px;
             max-width: $breakpoint-mobile;
-
-            @media (max-height: $breakpoint-tablet) {
-                max-width: 80%;
-            }
         }
     }
 
@@ -127,23 +123,12 @@
                 left: -420px;
             }
 
-            @media (max-width: $breakpoint-tablet) {
-                left: -500px;
-            }
-
-            @media (max-width: $breakpoint-mobile) {
-                width: 55vw;
-                left: -40%;
-            }
+            @media ()
         }
 
         .form2 {
             bottom: 0;
             right: 0;
-
-            @media (max-width: $breakpoint-tablet) {
-                width: 66vw;
-            }
         }
     }
 
