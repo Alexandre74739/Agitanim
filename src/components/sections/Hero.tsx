@@ -11,9 +11,16 @@ import "./Hero.scss";
 interface HeroProps {
   title: string;
   description: string;
+  showIcons?: boolean;
+  showButtons?: boolean;
 }
 
-function Hero({ title, description }: HeroProps) {
+function Hero({
+  title,
+  description,
+  showIcons = true,
+  showButtons = true,
+}: HeroProps) {
   const handleScroll = (e: React.MouseEvent) => {
     e.preventDefault();
     const target = document.getElementById("map");
@@ -30,22 +37,24 @@ function Hero({ title, description }: HeroProps) {
       <div className="container">
         <h1>{title}</h1>
         <p>{description}</p>
-        <Buttons />
+        {showButtons && <Buttons />}
       </div>
 
-      <div className="icons">
-        <Link to="/contact" className="icon-contact">
-          <img src={contact} alt="Contact" />
-        </Link>
+      {showIcons && (
+        <div className="icons">
+          <Link to="/contact" className="icon-contact">
+            <img src={contact} alt="Contact" />
+          </Link>
 
-        <Link to="/inclusion" className="icon-handicap">
-          <img src={handicap} alt="Handicap" />
-        </Link>
+          <Link to="/inclusion" className="icon-handicap">
+            <img src={handicap} alt="Handicap" />
+          </Link>
 
-        <a className="icon-scroll" onClick={handleScroll}>
-          <img src={fleches} alt="Scroll" />
-        </a>
-      </div>
+          <a className="icon-scroll" onClick={handleScroll}>
+            <img src={fleches} alt="Scroll" />
+          </a>
+        </div>
+      )}
 
       <div className="forms">
         <img src={form1} className="form1" alt="form" />
