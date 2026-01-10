@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Reveal } from "../layout/Reveal";
 import emailjs from "@emailjs/browser";
 import Buttons from "../common/Buttons";
@@ -26,6 +26,9 @@ function Hero({
   showForm = false,
 }: HeroProps) {
   const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   const handleScroll = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -37,6 +40,7 @@ function Hero({
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus("sending");
 
     if (formRef.current) {
       emailjs
@@ -48,11 +52,13 @@ function Hero({
         )
         .then(
           () => {
-            alert("Message envoyé avec succès !");
+            setStatus("success");
             formRef.current?.reset();
+            setTimeout(() => setStatus("idle"), 3000);
           },
           () => {
-            alert("Erreur. Écrivez à perezalexandre430@gmail.com");
+            setStatus("error");
+            setTimeout(() => setStatus("idle"), 5000);
           }
         );
     }
@@ -107,8 +113,31 @@ function Hero({
             </Reveal>
 
             <Reveal>
-              <button type="submit">Donner vie à ce projet</button>
+              <button
+                type="submit"
+                className={`btn-submit ${status}`}
+                disabled={status === "sending"}
+              >
+                {status === "idle" && "Donner vie à ce projet"}
+                {status === "sending" && "Envoi en cours..."}
+                {status === "success" && "Message envoyé ! ✓"}
+                {status === "error" && "Erreur d'envoi"}
+              </button>
             </Reveal>
+
+            {status === "success" && (
+              <span className="form-feedback success">
+                <strong>✓ Succès :</strong> Votre message a bien été transmis.
+                Je vous réponds sous peu.
+              </span>
+            )}
+            {status === "error" && (
+              <span className="form-feedback error">
+                {" "}
+                <strong>✕ Erreur :</strong> Un problème technique est survenu.
+                Contactez-moi à perezalexandre430@gmail.com
+              </span>
+            )}
           </form>
         )}
       </div>

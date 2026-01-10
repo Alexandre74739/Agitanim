@@ -14,7 +14,7 @@
     .hero-form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
         width: 100%;
         max-width: $breakpoint-mobile;
         margin-top: 80px;
@@ -45,6 +45,10 @@
                     outline: none;
                     border-color: $color-primary;
                 }
+
+                &:not(:placeholder-shown):invalid {
+                    border: 2px dashed $color-red;
+                }
             }
 
             textarea {
@@ -62,7 +66,6 @@
                 color: $color-accent;
                 pointer-events: none;
                 transition: all 0.2s ease-in-out;
-                background-color: transparent;
                 padding: 0 4px;
             }
 
@@ -70,17 +73,17 @@
             input:not(:placeholder-shown)+label,
             textarea:focus+label,
             textarea:not(:placeholder-shown)+label {
-                top: -10px;
-                left: 24px;
-                font-size: 12px;
-                color: $color-primary;
-                background: linear-gradient(to bottom, transparent 60%, $color-white 40%);
+                top: -12px;
+                left: 20px;
+                font-size: 14px;
                 font-weight: 700;
+                color: $color-primary;
+                background: linear-gradient(to bottom, transparent 66%, $color-white 33%);
                 padding: 0 8px;
             }
         }
 
-        button {
+        .btn-submit {
             width: 100%;
             font-family: $main-font;
             margin-top: 8px;
@@ -95,7 +98,7 @@
             letter-spacing: 1px;
             transition: 0.3s ease-in-out;
 
-            &:hover {
+            &:hover:not(:disabled) {
                 background-color: $color-accent;
                 transform: translateY(-4px);
             }
@@ -103,6 +106,49 @@
             &:active {
                 transform: translateY(0);
             }
+
+            &:disabled {
+                cursor: not-allowed;
+            }
+
+            &.success {
+                background-color: $color-green !important;
+            }
+
+            &.error {
+                background-color: $color-red !important;
+            }
+        }
+
+        .form-feedback {
+            display: block;
+            text-align: center;
+            font-family: $main-font;
+            font-size: 16px;
+            font-weight: 600;
+            color: $color-accent;
+            margin-top: -10px;
+            animation: 0.3s ease-in-out;
+
+            &.success {
+                color: $color-green;
+            }
+
+            &.error {
+                color: $color-red;
+            }
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-4px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 
