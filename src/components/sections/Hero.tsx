@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Reveal } from "../layout/Reveal";
 import emailjs from "@emailjs/browser";
 import Buttons from "../common/Buttons";
 import { Link } from "react-router-dom";
@@ -62,15 +63,52 @@ function Hero({
       <div className="container">
         <h1>{title}</h1>
         <p>{description}</p>
-        
+
         {showButtons && <Buttons />}
 
         {showForm && (
           <form className="hero-form" ref={formRef} onSubmit={sendEmail}>
-            <input type="text" name="nom" placeholder="Nom" required />
-            <input type="email" name="email" placeholder="E-mail" required />
-            <textarea name="message" placeholder="Message" rows={4} required />
-            <button type="submit">Envoyer</button>
+            <Reveal>
+              <div className="input-group">
+                <input
+                  type="text"
+                  name="nom"
+                  id="nom"
+                  placeholder=" "
+                  required
+                />
+                <label htmlFor="nom">Nom...</label>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="input-group">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder=" "
+                  required
+                />
+                <label htmlFor="email">E-mail...</label>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="input-group">
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder=" "
+                  required
+                />
+                <label htmlFor="message">Votre message...</label>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <button type="submit">Donner vie à ce projet</button>
+            </Reveal>
           </form>
         )}
       </div>
@@ -83,7 +121,11 @@ function Hero({
           <Link to="/inclusion" className="icon-handicap">
             <img src={handicap} alt="Handicap" />
           </Link>
-          <a className="icon-scroll" onClick={handleScroll} style={{cursor: 'pointer'}}>
+          <a
+            className="icon-scroll"
+            onClick={handleScroll}
+            style={{ cursor: "pointer" }}
+          >
             <img src={fleches} alt="Scroll" />
           </a>
         </div>
