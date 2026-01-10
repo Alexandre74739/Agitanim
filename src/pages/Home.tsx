@@ -9,6 +9,7 @@ function Home() {
         description="Le métier d’animateur va bien au-delà de l’enchaînement d’activités. Il joue un rôle essentiel dans le développement, l’épanouissement et l’inclusion des enfants, en s’appuyant au quotidien sur l’écoute, l’adaptation et la créativité."
         showButtons={true}
         showIcons={true}
+        showForm={false}
       />
       <Map />
     </div>

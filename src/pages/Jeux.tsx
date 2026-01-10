@@ -8,6 +8,7 @@ const Jeux = () => {
         description="Découvrez des activités clés en main, adaptées aux différents âges et besoins, pour accompagner chaque animateur dans la préparation de journées variées, dynamiques et inclusives."
         showButtons={true}
         showIcons={false}
+        showForm={false}
       />
       
     </div>
