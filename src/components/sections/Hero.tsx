@@ -7,26 +7,29 @@ import form1 from "../../assets/forme1.png";
 import form2 from "../../assets/forme2.png";
 import "./Hero.scss";
 
-function Hero() {
-  const handleScroll = () => {
+// Définition des types pour les props
+interface HeroProps {
+  title: string;
+  description: string;
+}
+
+function Hero({ title, description }: HeroProps) {
+  const handleScroll = (e: React.MouseEvent) => {
+    e.preventDefault();
     const target = document.getElementById("map");
     if (target) {
-      target.scrollIntoView({ 
-        behavior: "smooth", 
-        block: "start" 
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
+
   return (
     <section className="hero">
       <div className="container">
-        <h1>Découvrez le métier de l'animation</h1>
-        <p>
-          Le métier d’animateur va bien au-delà de l’enchaînement d’activités.
-          Il joue un rôle essentiel dans le développement, l’épanouissement et
-          l’inclusion des enfants, en s’appuyant au quotidien sur l’écoute,
-          l’adaptation et la créativité.
-        </p>
+        <h1>{title}</h1>
+        <p>{description}</p>
         <Buttons />
       </div>
 
