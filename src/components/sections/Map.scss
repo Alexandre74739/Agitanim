@@ -8,21 +8,86 @@
     align-items: center;
 
 
-    .organisation {
+    .items {
         margin-top: 64px;
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        .roadMap {
+        img {
             width: 80vw;
             max-width: $breakpoint-desktop;
 
-            @media (max-width: $breakpoint-tablet) {
-                width: 100vw;
+
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+
+            .rightStepCard,
+            .leftStepCard {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .leftStepCard {
+                flex-direction: row-reverse;
+                text-align: right;
+            }
+
+            span {
+                width: 80px;
+                height: 80px;
+                font-size: 40px;
+                font-family: $main-font;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $color-white;
+                border-radius: 50%;
+                box-shadow: 0 0 12px $color-primary;
+                transition: 0.3s ease-in-out;
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0 0 20px $color-secondary;
+                    transform: scale(1.05);
+                }
+
+                @media (max-width: $breakpoint-tablet) {
+                    width: 60px;
+                    height: 60px;
+                    font-size: 32px;
+                }
+
+                @media (max-width: $breakpoint-mobile) {
+                    font-size: 24px;
+                }
+            }
+
+            .stepContent {
+                flex: 1;
+
+                h3 {
+                    margin-bottom: 8px;
+                }
+
+                p {
+                    margin: 0;
+                }
             }
         }
 
+    }
+
+    .forms img {
+        width: 10px;
     }
 
     @media (max-width: $breakpoint-mobile) {

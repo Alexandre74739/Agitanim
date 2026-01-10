@@ -41,6 +41,7 @@
 	.nav-desktop {
 		display: none;
 		align-items: center;
+		text-align: center;
 		gap: 40px;
 
 		@media (min-width: $breakpoint-tablet) {

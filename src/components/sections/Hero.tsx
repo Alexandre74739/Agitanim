@@ -8,13 +8,22 @@ import form2 from "../../assets/forme2.png";
 import "./Hero.scss";
 
 function Hero() {
+  const handleScroll = () => {
+    const target = document.getElementById("map");
+    if (target) {
+      target.scrollIntoView({ 
+        behavior: "smooth", 
+        block: "start" 
+      });
+    }
+  };
   return (
     <section className="hero">
       <div className="container">
         <h1>Découvrez le métier de l'animation</h1>
         <p>
-          Le métier d’animateur va bien au-delà de l’enchaînement d’activités. Il
-          joue un rôle essentiel dans le développement, l’épanouissement et
+          Le métier d’animateur va bien au-delà de l’enchaînement d’activités.
+          Il joue un rôle essentiel dans le développement, l’épanouissement et
           l’inclusion des enfants, en s’appuyant au quotidien sur l’écoute,
           l’adaptation et la créativité.
         </p>
@@ -30,14 +39,14 @@ function Hero() {
           <img src={handicap} alt="Handicap" />
         </Link>
 
-        <a href="#prochaine-section" className="icon-scroll">
+        <a className="icon-scroll" onClick={handleScroll}>
           <img src={fleches} alt="Scroll" />
         </a>
       </div>
 
       <div className="forms">
-      <img src={form1} className="form1" alt="form" />
-      <img src={form2} className="form2" alt="form" />
+        <img src={form1} className="form1" alt="form" />
+        <img src={form2} className="form2" alt="form" />
       </div>
     </section>
   );
