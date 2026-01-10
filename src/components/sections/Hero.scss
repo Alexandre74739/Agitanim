@@ -94,6 +94,7 @@
 
             @media (max-height: $breakpoint-tablet) {
                 top: 66%;
+                left: 12.5%;
             }
         }
 
@@ -141,7 +142,11 @@
             bottom: 0;
             right: 0;
 
-            @media (max-width: $breakpoint-tablet) {
+            @media (max-width: $breakpoint-desktop) {
+                width: 35vw;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
                 width: 66vw;
             }
         }
