@@ -43,10 +43,9 @@
         .step-container {
             position: absolute;
             z-index: 5;
-            width: 380px;
 
             @media (max-width: $breakpoint-tablet) {
-                width: 280px;
+                width: 75%;
             }
 
             @media (max-width: $breakpoint-mobile) {
@@ -91,8 +90,13 @@
                 flex: 1;
 
                 p {
+                    font-size: 18px;
                     margin-bottom: 0;
                     max-width: none;
+
+                    @media (max-width: $breakpoint-tablet) {
+                        font-size: 14px;
+                    }
                 }
             }
 
@@ -115,7 +119,7 @@
                     box-shadow: 0 0 20px $color-secondary;
                 }
 
-                @media (max-width: $breakpoint-tablet) {
+                @media (max-width: $breakpoint-mobile) {
                     width: 60px;
                     height: 60px;
                     min-width: 60px;
@@ -125,28 +129,42 @@
         }
 
         .step-1 {
-            top: 5%;
-            right: 5%;
+            top: 16%;
+            left: 22.5%;
         }
 
         .step-2 {
-            top: 22%;
-            left: 2%;
+            top: 30.5%;
+            right: 22.5%;
+
+            @media (max-width: $breakpoint-tablet) {
+                top: 29.5%;
+                width: 75%;
+            }
         }
 
         .step-3 {
-            top: 45%;
-            right: 8%;
+            top: 44%;
+            left: 33%;
+
+            @media (max-width: $breakpoint-tablet) {
+                top: 43.5%;
+                width: 68%;
+            }
         }
 
         .step-4 {
-            top: 68%;
-            left: 5%;
+            top: 59%;
+            right: 10%;
+
+            @media (max-width: $breakpoint-tablet) {
+                width: 80%;
+            }
         }
 
         .step-5 {
-            bottom: 2%;
-            right: 5%;
+            bottom: 20%;
+            left: 10%;
         }
     }
 
