@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Buttons from "../common/Buttons";
 import { Reveal } from "../layout/Reveal";
 import roadMap from "../../assets/roadMap.png";
@@ -6,6 +7,8 @@ import form3 from "../../assets/forme3.png";
 import "./Map.scss";
 
 function Map() {
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+
   const steps = [
     {
       id: 1,
@@ -65,12 +68,38 @@ function Map() {
               <Reveal>
                 <div className={`${step.side}StepCard`}>
                   <div className="stepNumber">
-                    <span>{step.id}</span>
+                    <span onClick={() => setActiveStep(step.id)}>
+                      {step.id}
+                    </span>
                   </div>
                   <div className="stepContent">
                     <h3>{step.title}</h3>
                     <p>{step.text}</p>
                   </div>
+
+                  {activeStep !== null && (
+                    <div
+                      className="modal-overlay"
+                      onClick={() => setActiveStep(null)}
+                    >
+                      <div
+                        className="modal-card"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <button
+                          className="close-btn"
+                          onClick={() => setActiveStep(null)}
+                        >
+                          ✕
+                        </button>
+                        <div className="modal-header">
+                          <span>{steps[activeStep - 1].id}</span>
+                          <h3>{steps[activeStep - 1].title}</h3>
+                        </div>
+                        <p>{steps[activeStep - 1].text}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </Reveal>
             </div>
