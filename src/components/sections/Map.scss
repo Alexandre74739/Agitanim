@@ -29,24 +29,34 @@
     }
 
     .items {
+        position: relative;
         width: 100%;
         max-width: $breakpoint-desktop;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        margin: 0 auto;
 
         .roadMap {
-            width: 80vw;
-            max-width: $breakpoint-tablet;
+            width: 100%;
             height: auto;
-            margin-bottom: 64px;
+            display: block;
         }
 
-        .step {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            width: 100%;
+        .step-container {
+            position: absolute;
+            z-index: 5;
+            width: 380px;
+
+            @media (max-width: $breakpoint-tablet) {
+                width: 280px;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                position: relative;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                width: 100%;
+                margin-bottom: 40px;
+            }
 
             .rightStepCard,
             .leftStepCard {
@@ -59,12 +69,36 @@
             .leftStepCard {
                 flex-direction: row-reverse;
                 text-align: right;
+
+                .stepContent {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                }
+            }
+
+            .rightStepCard {
+                text-align: left;
+
+                .stepContent {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+
+            .stepContent {
+                flex: 1;
+
+                p {
+                    margin-bottom: 0;
+                    max-width: none;
+                }
             }
 
             span {
                 width: 80px;
                 height: 80px;
-                min-width: 80px;
                 font-size: 40px;
                 font-family: $main-font;
                 font-weight: bold;
@@ -88,15 +122,31 @@
                     font-size: 32px;
                 }
             }
+        }
 
-            .stepContent {
-                flex: 1;
+        .step-1 {
+            top: 5%;
+            right: 5%;
+        }
 
-                p {
-                    margin-bottom: 0;
-                    max-width: none;
-                }
-            }
+        .step-2 {
+            top: 22%;
+            left: 2%;
+        }
+
+        .step-3 {
+            top: 45%;
+            right: 8%;
+        }
+
+        .step-4 {
+            top: 68%;
+            left: 5%;
+        }
+
+        .step-5 {
+            bottom: 2%;
+            right: 5%;
         }
     }
 

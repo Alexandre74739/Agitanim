@@ -60,9 +60,9 @@ function Map() {
             <img src={roadMap} className="roadMap" alt="Route de la journée" />
           </Reveal>
 
-          <div className="step">
-            {steps.map((step) => (
-              <Reveal key={step.id}>
+          {steps.map((step) => (
+            <div key={step.id} className={`step-container step-${step.id}`}>
+              <Reveal>
                 <div className={`${step.side}StepCard`}>
                   <div className="stepNumber">
                     <span>{step.id}</span>
@@ -73,8 +73,8 @@ function Map() {
                   </div>
                 </div>
               </Reveal>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         <div className="forms">
