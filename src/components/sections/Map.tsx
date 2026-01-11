@@ -107,9 +107,9 @@ function Map() {
         </div>
 
         <div className="forms">
-          <img src={form3} className="form3" alt="form" />
-          <img src={form3} className="form3" alt="form" />
-          <img src={form2} className="form2" alt="form" />
+          <img src={form3} className="form1" alt="form" />
+          <img src={form3} className="form2" alt="form" />
+          <img src={form2} className="form3" alt="form" />
         </div>
       </div>
     </section>
