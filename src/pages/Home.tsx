@@ -1,5 +1,6 @@
 import Hero from "../components/sections/Hero";
 import Map from "../components/sections/Map";
+import Activites from "../components/sections/Activites";
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
         showForm={false}
       />
       <Map />
+      <Activites />
     </div>
   );
 }

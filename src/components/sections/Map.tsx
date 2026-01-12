@@ -43,8 +43,8 @@ function Map() {
   ];
   return (
     <section className="map" id="map">
-      <Reveal>
-        <div className="container">
+      <div className="container">
+        <Reveal>
           <h2>C'est parti pour une journée en centre de loisirs</h2>
           <p>
             Chaque journée en centre de loisirs suit une organisation précise.
@@ -53,9 +53,11 @@ function Map() {
             Cette roadmap va permettre de te guider à travers les étapes clés
             d’une journée type.
           </p>
+        </Reveal>
+        <Reveal>
           <Buttons />
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
 
       <div className="organisation">
         <div className="items">
