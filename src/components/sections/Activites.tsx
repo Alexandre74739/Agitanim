@@ -1,9 +1,56 @@
+import { useEffect, useState } from "react";
+import { supabase } from "../../utils/supabaseClient";
 import { Reveal } from "../layout/Reveal";
 import Buttons from "../common/Buttons";
+import ActivityCard from "../../utils/ActivityCard";
 
 import "./Activites.scss";
 
+interface Activity {
+  id: number;
+  title: string;
+  description: string;
+  author: string;
+  age_min: number;
+  age_max: number;
+  duration_min: number;
+  duration_max: number;
+  nb_kids: number;
+  image_url: string;
+  pdf_url: string;
+}
+
 function Activites() {
+  const [activities, setActivities] = useState<Activity[]>([]);
+  const [limit, setLimit] = useState(3);
+  const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const { data, error: supabaseError } = await supabase
+          .from("activities")
+          .select("*")
+          .order("id", { ascending: true })
+          .range(0, limit - 1);
+
+        if (supabaseError) {
+          console.error("Erreur Supabase détaillée:", supabaseError.message);
+          return;
+        }
+
+        if (data) {
+          console.log("Données reçues :", data);
+          setActivities(data);
+        }
+      } catch (err) {
+        console.error("Erreur système inattendue:", err);
+      }
+    };
+
+    loadData();
+  }, [limit]);
+
   return (
     <section className="activites">
       <Reveal>
@@ -11,14 +58,54 @@ function Activites() {
           <h2>Projets et jeux</h2>
           <p>
             Concevoir des activités est l’essence même du métier d’animateur.
-            Des projets pédagogiques aux grands jeux, chaque instant est pensé
-            pour rythmer la journée et enrichir l'expérience des enfants.
+            Chaque instant est pensé pour rythmer la journée et enrichir
+            l'expérience des enfants.
           </p>
         </div>
       </Reveal>
       <Reveal>
         <Buttons />
       </Reveal>
+
+      <div className="cards-grid">
+        {activities.map((activity) => (
+          <Reveal key={activity.id}>
+            <ActivityCard
+              activity={activity}
+              onClick={() => setSelectedPdf(activity.pdf_url)}
+            />
+          </Reveal>
+        ))}
+      </div>
+
+      <div className="actions-area">
+        <Reveal>
+          <div className="buttons-group">
+            {activities.length >= limit && (
+              <button
+                className="btn-load-more"
+                onClick={() => setLimit((prev) => prev + 3)}
+              >
+                Afficher plus
+              </button>
+            )}
+          </div>
+        </Reveal>
+      </div>
+
+      {selectedPdf && (
+        <div className="modal-overlay" onClick={() => setSelectedPdf(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setSelectedPdf(null)}>
+              ✕
+            </button>
+            <iframe src={selectedPdf} title="Aperçu de l'activité" />
+            <a href={selectedPdf} download className="download-btn">
+              Télécharger le PDF
+            </a>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
