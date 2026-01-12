@@ -16,10 +16,20 @@ function Header() {
 
         <div className="header-left">
           <nav className="nav-desktop">
-            <Link to="/">Accueil</Link>
-            <Link to="/jeux">Projets & Jeux</Link>
-            <Link to="/inclusion">Handicap & Inclusion</Link>
-            <Link to="/contact" className="btn-contact">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0 })}>
+              Accueil
+            </Link>
+            <Link to="/jeux" onClick={() => window.scrollTo({ top: 0 })}>
+              Projets & Jeux
+            </Link>
+            <Link to="/inclusion" onClick={() => window.scrollTo({ top: 0 })}>
+              Handicap & Inclusion
+            </Link>
+            <Link
+              to="/contact"
+              className="btn-contact"
+              onClick={() => window.scrollTo({ top: 0 })}
+            >
               Contact
             </Link>
           </nav>
