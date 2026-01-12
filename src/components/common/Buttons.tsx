@@ -1,26 +1,18 @@
-import { useNavigate } from 'react-router-dom';
-import './Buttons.scss';
+import { Link } from "react-router-dom";
+import "./Buttons.scss";
 
 function Buttons() {
-    const navigate = useNavigate();
+  return (
+    <div className="btns">
+      <Link to="/jeux" className="primary-btn-link">
+        <button className="primary-btn">Projets & Jeux</button>
+      </Link>
 
-    return (
-        <div className='btns'>
-            <button
-                className='primary-btn'
-                onClick={() => navigate('/jeux')}
-            >
-                Projets & Jeux
-            </button>
-
-            <button
-                className='secondary-btn'
-                onClick={() => navigate('/inclusion')}
-            >
-                Handicap & Inclusion
-            </button>
-        </div>
-    );
+      <Link to="/inclusion" className="secondary-btn-link">
+        <button className="secondary-btn">Handicap & Inclusion</button>
+      </Link>
+    </div>
+  );
 }
 
 export default Buttons;

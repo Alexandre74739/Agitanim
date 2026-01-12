@@ -1,46 +1,25 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/menu-de-hamburger.png";
 import logo from "../../assets/logo.png";
 import "./Header.scss";
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
-
-  const handleLinkClick = (to: string) => {
-    setOpen(false);
-
-    if (location.pathname === to) {
-      window.scrollTo({
-        top: 0,
-      });
-    }
-  };
 
   return (
     <header className="header">
       <div className="header-container">
-        <Link to="/" onClick={() => handleLinkClick("/")}>
+        <Link to="/" onClick={() => setOpen(false)}>
           <img src={logo} className="logo" alt="Logo" />
         </Link>
 
         <div className="header-left">
           <nav className="nav-desktop">
-            <Link to="/" onClick={() => handleLinkClick("/")}>
-              Accueil
-            </Link>
-            <Link to="/jeux" onClick={() => handleLinkClick("/jeux")}>
-              Projets & Jeux
-            </Link>
-            <Link to="/inclusion" onClick={() => handleLinkClick("/inclusion")}>
-              Handicap & Inclusion
-            </Link>
-            <Link
-              to="/contact"
-              className="btn-contact"
-              onClick={() => handleLinkClick("/contact")}
-            >
+            <Link to="/">Accueil</Link>
+            <Link to="/jeux">Projets & Jeux</Link>
+            <Link to="/inclusion">Handicap & Inclusion</Link>
+            <Link to="/contact" className="btn-contact">
               Contact
             </Link>
           </nav>
@@ -53,16 +32,16 @@ function Header() {
 
       {open && (
         <div className="nav-mobile">
-          <Link to="/" onClick={() => handleLinkClick("/")}>
+          <Link to="/" onClick={() => setOpen(false)}>
             Accueil
           </Link>
-          <Link to="/jeux" onClick={() => handleLinkClick("/jeux")}>
+          <Link to="/jeux" onClick={() => setOpen(false)}>
             Projets & Jeux
           </Link>
-          <Link to="/inclusion" onClick={() => handleLinkClick("/inclusion")}>
+          <Link to="/inclusion" onClick={() => setOpen(false)}>
             Handicap & Inclusion
           </Link>
-          <Link to="/contact" onClick={() => handleLinkClick("/contact")}>
+          <Link to="/contact" onClick={() => setOpen(false)}>
             Contact
           </Link>
         </div>
