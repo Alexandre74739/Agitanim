@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 import "./App.scss";
 
 // Pages
@@ -39,6 +40,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+
+      <Footer />
     </Router>
   );
 }
