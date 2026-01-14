@@ -44,9 +44,7 @@
             width: 100%;
             max-width: 250px;
 
-            @media (max-width: $breakpoint-tablet) {
-                 max-width: 150px;
-            }
+            @media (max-width: $breakpoint-tablet)
 
         }
     }

@@ -1,0 +1,105 @@
+@import '../variables';
+
+.activity-card {
+    position: relative;
+    display: flex;
+    flex-direction: row; // Horizontal par défaut
+    align-items: stretch;
+    margin: 0 auto 40px auto; // Centré avec l'espacement de 40px en bas
+    width: 90%; // S'adapte à la largeur de la fenêtre
+    max-width: $breakpoint-desktop;
+    border-radius: 15px;
+    background-color: $color-white;
+    box-shadow: 0 0 8px $color-dark;
+    overflow: hidden;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    // --- RESPONSIVE MOBILE ---
+    @media (max-width: $breakpoint-tablet) {
+        flex-direction: column; // Passage en mode vertical
+        width: 95%; // Prend plus de place sur petit écran
+        gap: 0; // On supprime le gap pour coller l'image au texte
+    }
+
+    .img-content {
+        background-color: $color-bg-soft;
+        flex: 0 0 33%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+
+        @media (max-width: $breakpoint-tablet) {
+            width: 100%; // Prend toute la largeur en haut
+            padding: 30px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 250px;
+            object-fit: contain;
+
+            @media (max-width: $breakpoint-tablet) {
+                max-width: 180px; // Image légèrement plus grande qu'avant sur mobile
+            }
+        }
+    }
+
+    .card-content {
+        flex: 1;
+        padding: 20px; // Padding uniforme
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+
+        .author {
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+
+        h3 {
+            @include typo-h2;
+            margin-bottom: 12px;
+            width: 100%;
+            
+            @media (max-width: $breakpoint-tablet) {
+                font-size: 1.4rem; // Titre un peu plus petit sur mobile
+            }
+        }
+
+        .description {
+            font-size: 16px;
+            width: 100%; // Prend toute la place disponible à droite
+            margin-bottom: 16px;
+
+            @media (max-width: $breakpoint-tablet) {
+                display: block; // On peut la réafficher ou la masquer selon ton choix
+                font-size: 14px;
+            }
+        }
+
+        .labels {
+            display: flex;
+            flex-wrap: wrap; // Permet aux badges de passer à la ligne si besoin
+            gap: 10px;
+            margin-top: auto;
+
+            label {
+                @include typo-label;
+                background-color: #343378;
+                color: white;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

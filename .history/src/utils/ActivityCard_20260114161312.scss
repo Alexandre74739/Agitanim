@@ -18,7 +18,7 @@
 
     &:hover {
         transform: translateY(-8px);
-        box-shadow: 0 0 20px $color-dark;
+        box-shadow: 0 0 8px $color-dark;
     }
 
     @media (max-width: $breakpoint-tablet) {
@@ -42,12 +42,7 @@
 
         img {
             width: 100%;
-            max-width: 250px;
-
-            @media (max-width: $breakpoint-tablet) {
-                 max-width: 150px;
-            }
-
+            max-width: 180px;
         }
     }
 

@@ -1,0 +1,111 @@
+@import '../variables';
+
+.activity-card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    // Alignement parfait sur le header : margin auto et width 100% dans le container
+    margin: 0 auto 40px auto; 
+    width: 100%; 
+    max-width: $breakpoint-desktop; 
+    
+    // HAUTEUR FIXE : Garantit que toutes les cards font la même taille
+    height: 220px; 
+
+    border-radius: 15px;
+    background-color: $color-white;
+    box-shadow: 0 0 8px $color-dark;
+    overflow: hidden;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        height: 180px; // Hauteur fixe réduite pour tablette
+        gap: 0;
+    }
+
+    .img-content {
+        background-color: $color-bg-soft;
+        flex: 0 0 33%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 250px;
+            object-fit: contain;
+
+            @media (max-width: $breakpoint-tablet) {
+                padding: 24px;
+            }
+        }
+    }
+
+    .card-content {
+        flex: 1;
+        padding: 16px 24px;
+        display: flex;
+        flex-direction: column;
+        // Empêche le contenu de déborder de la hauteur fixe
+        overflow: hidden; 
+
+        .author {
+            margin-bottom: 4px;
+            flex-shrink: 0;
+        }
+
+        h3 {
+            @include typo-h2;
+            margin-bottom: 8px;
+            width: 100%;
+            line-height: 1.2;
+            
+            // TRONCATURE : Permet au titre de faire 2 lignes max sans pousser le reste
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-shrink: 0; 
+        }
+
+        .description {
+            font-size: 15px;
+            width: 100%;
+            // La description prend l'espace restant
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 8px;
+
+            @media (max-width: $breakpoint-tablet) {
+                display: none;
+            }
+        }
+
+        .labels {
+            display: flex;
+            gap: 12px;
+            // FORCE LES LABELS EN BAS : Même si le titre est court
+            margin-top: auto; 
+            flex-shrink: 0;
+
+            label {
+                @include typo-label;
+                background-color: #343378;
+                color: white;
+                padding: 6px 14px;
+                border-radius: 20px;
+                white-space: nowrap;
+            }
+        }
+    }
+}
