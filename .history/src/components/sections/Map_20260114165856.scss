@@ -316,15 +316,21 @@
         }
 
         .form3 {
-            bottom: 12%;
-            right: -300px;
+            top: 50%;
+            left: -280px;
+            transform: translateY(-50%);
+
+            @media (max-width: $breakpoint-desktop) {
+                left: -420px;
+            }
 
             @media (max-width: $breakpoint-tablet) {
-                right: -50%;
+                left: -500px;
             }
 
             @media (max-width: $breakpoint-mobile) {
-                width: 66vw;
+                width: 55vw;
+                left: -40%;
             }
         }
     }

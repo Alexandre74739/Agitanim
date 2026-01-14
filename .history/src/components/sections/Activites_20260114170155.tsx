@@ -4,9 +4,6 @@ import { supabase } from "../../utils/supabaseClient";
 import { Reveal } from "../layout/Reveal";
 import Buttons from "../common/Buttons";
 import ActivityCard from "../../utils/ActivityCard";
-import form1 from "../../assets/forme1.png";
-import form2 from "../../assets/forme2.png";
-import form3 from "../../assets/forme3.png";
 
 import "./Activites.scss";
 
@@ -117,11 +114,11 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
         )}
       </div>
 
-      <div className="forms">
-        <img src={form1} className="form1" alt="form" />
+      <div className="forms">          
+        <img src={form1} className="form3" alt="form" />
+
+        <img src={form3} className="form1" alt="form" />
         <img src={form3} className="form2" alt="form" />
-        <img src={form2} className="form3" alt="form" />
-        <img src={form3} className="form4" alt="form" />
       </div>
 
       {selectedPdf && (

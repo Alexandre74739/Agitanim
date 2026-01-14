@@ -1,0 +1,67 @@
+@import '../../variables';
+
+.activites {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+
+    .container p {
+        width: 100%;
+    }
+
+    .cards-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+        padding: 40px 0;
+
+        @media (max-width: $breakpoint-tablet) {
+            gap: 40px;
+        }
+    }
+
+    .primary-btn {
+        @include typo-primary-btn;
+    }
+
+    .forms {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1000;
+
+        .form1,
+        .form2,
+        .form3 {
+            position: absolute;
+            pointer-events: none;
+            object-fit: contain;
+        }
+
+        .form1 {
+            top: 55%;
+            left: -280px;
+            transform: translateY(-50%);
+
+            @media (max-width: $breakpoint-desktop) {
+                left: -420px;
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+                left: -500px;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                width: 55vw;
+                left: -40%;
+            }
+        }
+
+}

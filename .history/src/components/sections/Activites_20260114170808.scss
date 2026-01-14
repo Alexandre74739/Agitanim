@@ -71,41 +71,40 @@
             transform: translateY(-50%);
 
             @media (max-width: $breakpoint-desktop) {
-                right: -420px;
+                left: -420px;
             }
 
             @media (max-width: $breakpoint-tablet) {
-                right: -500px;
+                left: -500px;
             }
 
             @media (max-width: $breakpoint-mobile) {
                 width: 55vw;
-                right: -40%;
+                left: -40%;
             }
         }
 
         .form3 {
-            bottom: -15%;
+            bottom: 10%;
             right: -280px;
             transform: translateY(-50%);
 
             @media (max-width: $breakpoint-desktop) {
-                bottom: -5%;
-                right: -420px;
+                left: -420px;
             }
 
             @media (max-width: $breakpoint-tablet) {
-                right: -500px;
+                left: -500px;
             }
 
             @media (max-width: $breakpoint-mobile) {
                 width: 55vw;
-                right: -40%;
+                left: -40%;
             }
         }
 
         .form4 {
-            bottom: 10%;
+            bottom: 0%;
             left: -280px;
             transform: translateY(-50%);
 

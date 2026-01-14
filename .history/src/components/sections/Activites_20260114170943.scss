@@ -85,12 +85,11 @@
         }
 
         .form3 {
-            bottom: -15%;
+            bottom: -5%;
             right: -280px;
             transform: translateY(-50%);
 
             @media (max-width: $breakpoint-desktop) {
-                bottom: -5%;
                 right: -420px;
             }
 
@@ -105,7 +104,7 @@
         }
 
         .form4 {
-            bottom: 10%;
+            bottom: 20%;
             left: -280px;
             transform: translateY(-50%);
 

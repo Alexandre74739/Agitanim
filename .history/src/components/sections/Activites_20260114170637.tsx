@@ -121,7 +121,7 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
         <img src={form1} className="form1" alt="form" />
         <img src={form3} className="form2" alt="form" />
         <img src={form2} className="form3" alt="form" />
-        <img src={form3} className="form4" alt="form" />
+        <img src={form3} className="form3" alt="form" />
       </div>
 
       {selectedPdf && (
