@@ -29,7 +29,10 @@ interface ActivitesProps {
   showInfosBtn?: boolean;
 }
 
-function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps) {
+function Activites({
+  showLoadMore = true,
+  showInfosBtn = false,
+}: ActivitesProps) {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [limit, setLimit] = useState(3);
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
@@ -59,6 +62,24 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
 
     loadData();
   }, [limit]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedPdf(null);
+      }
+    };
+
+    if (selectedPdf) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedPdf]);
 
   return (
     <section className="activites">
@@ -110,7 +131,9 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
                 className="primary-btn-link"
                 onClick={() => window.scrollTo({ top: 0 })}
               >
-                <button className="primary-btn">Je veux explorer plus d'idées</button>
+                <button className="primary-btn">
+                  Je veux explorer plus d'idées
+                </button>
               </Link>
             </div>
           </Reveal>
@@ -127,10 +150,10 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
       {selectedPdf && (
         <div className="modal-overlay" onClick={() => setSelectedPdf(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={() => setSelectedPdf(null)}>
-              ✕
-            </button>
-            <iframe src={selectedPdf} title="Aperçu de l'activité" />
+            <iframe
+              src={`${selectedPdf}#view=FitH&toolbar=0&navpanes=0`}
+              title="Aperçu de l'activité"
+            />
             <a href={selectedPdf} download className="download-btn">
               Télécharger le PDF
             </a>
