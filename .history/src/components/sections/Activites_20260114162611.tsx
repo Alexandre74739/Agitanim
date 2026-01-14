@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "../../utils/supabaseClient";
 import { Reveal } from "../layout/Reveal";
@@ -22,11 +21,11 @@ interface Activity {
 }
 
 interface ActivitesProps {
-  showLoadMore?: boolean;
-  showInfosBtn?: boolean;
+  btnMoreActivities: boolean;
+  btnMoreInfos: boolean
 }
 
-function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps) {
+function Activites() {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [limit, setLimit] = useState(3);
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
@@ -85,33 +84,18 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
       </div>
 
       <div className="actions-area">
-        {showInfosBtn && (
-          <Reveal>
-            <div className="buttons-group">
-              {activities.length >= limit && (
-                <button
-                  className="primary-btn-link"
-                  onClick={() => setLimit((prev) => prev + 3)}
-                >
-                  Je veux plus d'idées
-                </button>
-              )}
-            </div>
-          </Reveal>
-        )}
-        {showLoadMore && (
-          <Reveal>
-            <div className="buttons-group">
-              <Link
-                to="/jeux"
-                className="primary-btn-link"
-                onClick={() => window.scrollTo({ top: 0 })}
+        <Reveal>
+          <div className="buttons-group">
+            {activities.length >= limit && (
+              <button
+                className="btn-load-more"
+                onClick={() => setLimit((prev) => prev + 3)}
               >
-                <button className="primary-btn">Je veux explorer plus d'idées</button>
-              </Link>
-            </div>
-          </Reveal>
-        )}
+                Afficher plus
+              </button>
+            )}
+          </div>
+        </Reveal>
       </div>
 
       {selectedPdf && (

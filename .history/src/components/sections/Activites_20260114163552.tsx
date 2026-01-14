@@ -85,33 +85,26 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
       </div>
 
       <div className="actions-area">
-        {showInfosBtn && (
-          <Reveal>
-            <div className="buttons-group">
-              {activities.length >= limit && (
-                <button
-                  className="primary-btn-link"
-                  onClick={() => setLimit((prev) => prev + 3)}
-                >
-                  Je veux plus d'idées
-                </button>
-              )}
-            </div>
-          </Reveal>
-        )}
-        {showLoadMore && (
-          <Reveal>
-            <div className="buttons-group">
-              <Link
-                to="/jeux"
-                className="primary-btn-link"
-                onClick={() => window.scrollTo({ top: 0 })}
+
+        <Reveal>
+          <div className="buttons-group">
+            {showMoreActivities && activities.length >= limit && (
+              <button
+                className="btn-load-more"
+                onClick={() => setLimit((prev) => prev + 3)}
               >
-                <button className="primary-btn">Je veux explorer plus d'idées</button>
+                Afficher plus
+              </button>
+            )}
+
+            {showMoreInfos && (
+              <Link to="/votre-page" className="btn-infos">
+                En savoir plus
               </Link>
-            </div>
-          </Reveal>
-        )}
+            )}
+          </div>
+        </Reveal>
+
       </div>
 
       {selectedPdf && (

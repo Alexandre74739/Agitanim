@@ -107,7 +107,7 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
                 className="primary-btn-link"
                 onClick={() => window.scrollTo({ top: 0 })}
               >
-                <button className="primary-btn">Je veux explorer plus d'idées</button>
+                <button className="primary-btn">Je veux plus de projets & jeux</button>
               </Link>
             </div>
           </Reveal>

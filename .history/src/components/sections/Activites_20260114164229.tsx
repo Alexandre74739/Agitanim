@@ -90,7 +90,7 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
             <div className="buttons-group">
               {activities.length >= limit && (
                 <button
-                  className="primary-btn-link"
+                  className="btn-load-more"
                   onClick={() => setLimit((prev) => prev + 3)}
                 >
                   Je veux plus d'idées
@@ -107,7 +107,7 @@ function Activites({ showLoadMore = true, showInfosBtn = false }: ActivitesProps
                 className="primary-btn-link"
                 onClick={() => window.scrollTo({ top: 0 })}
               >
-                <button className="primary-btn">Je veux explorer plus d'idées</button>
+                <button className="primary-btn">Je veux voir les projets & jeux</button>
               </Link>
             </div>
           </Reveal>

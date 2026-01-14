@@ -13,9 +13,7 @@ function Home() {
         showForm={false}
       />
       <Map />
-      <Activites 
-      showLoadMore={true}
-      showInfosBtn={false}/>
+      <Activites />
     </div>
   );
 }

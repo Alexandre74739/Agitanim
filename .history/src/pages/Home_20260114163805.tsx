@@ -14,8 +14,7 @@ function Home() {
       />
       <Map />
       <Activites 
-      showLoadMore={true}
-      showInfosBtn={false}/>
+      showLoadMore={true}/>
     </div>
   );
 }
