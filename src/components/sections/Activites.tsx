@@ -37,6 +37,34 @@ function Activites({
   const [limit, setLimit] = useState(3);
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
 
+  const handleDownload = async (pdfUrl: string, fileName: string) => {
+    try {
+      // On extrait le chemin du fichier depuis l'URL
+      // Exemple: 'public/medias/fiche.pdf'
+      const filePath = pdfUrl.split("/public/")[1];
+
+      const { data, error } = await supabase.storage
+        .from("medias") // Remplacez par le nom de votre bucket
+        .download(filePath.split("medias/")[1]);
+
+      if (error) throw error;
+
+      // Création d'un lien temporaire pour déclencher le téléchargement
+      const url = window.URL.createObjectURL(data);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${fileName}.pdf`; // Nom du fichier personnalisé
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("Erreur de téléchargement:", err);
+      // Repli : ouvrir dans un nouvel onglet si le téléchargement direct échoue
+      window.open(pdfUrl, "_blank");
+    }
+  };
+
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -154,9 +182,12 @@ function Activites({
               src={`${selectedPdf}#view=FitH&toolbar=0&navpanes=0`}
               title="Aperçu de l'activité"
             />
-            <a href={selectedPdf} download className="download-btn">
+            <button
+              onClick={() => handleDownload(selectedPdf, "Mon-Activite")}
+              className="download-btn"
+            >
               Télécharger le PDF
-            </a>
+            </button>
           </div>
         </div>
       )}
