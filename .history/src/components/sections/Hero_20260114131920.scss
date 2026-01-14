@@ -208,14 +208,11 @@
         .icon-scroll {
             top: 80%;
             left: 20%;
+            max-height: 1000px;
 
             @media (max-height: $breakpoint-tablet) {
                 top: 66%;
                 left: 12.5%;
-            }
-
-            @media (min-height: $breakpoint-tablet) {
-                top: 50%;
             }
         }
 

@@ -270,6 +270,10 @@
             @media (max-width: $breakpoint-mobile) {
                 width: 66vw;
             }
+
+            @media (min-height: $breakpoint-tablet) {
+                bottom: 33%;
+            }
         }
     }
 }
