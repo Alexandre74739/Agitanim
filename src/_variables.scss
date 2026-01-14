@@ -188,3 +188,23 @@ $breakpoint-mobile: 768px;
         height: 55px;
     }
 }
+
+@mixin typo-label {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50px;
+    font-family: $main-font;
+    font-weight: bold;
+    font-size: 20px;
+    color: $color-white;
+    background-color: $color-primary;
+    padding: 10px 20px;
+    min-width: 150px;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        transform: translateY(-4px);
+        background-color: $color-accent;
+    }
+}
