@@ -1,0 +1,14 @@
+@import '../variables';
+
+.activity-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap
+
+    label {
+        @include typo-label;
+    }
+
+
+}

@@ -1,0 +1,76 @@
+@import '../variables';
+
+.activity-card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    // 1. On utilise stretch pour que les enfants (img-content et card-content)
+    // aient exactement la même hauteur.
+    align-items: stretch; 
+    border-radius: 15px;
+    background-color: $color-white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Ombre plus légère pour coller à l'image
+    overflow: hidden; // 2. Indispensable pour que le background gris ne dépasse pas des coins arrondis
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    max-width: ;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    .img-content {
+        background-color: #b1b3ca; // Couleur de ton image
+        flex: 0 0 35%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // Pas besoin de height: 100% ici car le parent est en stretch
+
+        img {
+            width: 80%; // Ajuste selon la taille désirée de l'icône
+            height: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+    }
+
+    .card-content {
+        flex: 1;
+        padding: 20px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; // Centre le texte verticalement si besoin
+
+        .author {
+            color: $color-primary;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        h3 {
+            @include typo-h2;
+            margin: 0 0 12px 0;
+        }
+
+        .description {
+            font-size: 0.9rem;
+            color: $color-dark;
+            margin-bottom: 16px;
+        }
+
+        .labels {
+            display: flex;
+            gap: 12px;
+
+            label {
+                background-color: #343378; // Bleu foncé des badges
+                color: white;
+                padding: 6px 16px;
+                border-radius: 20px;
+                @include typo-label;
+                font-size: 0.85rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+@import '../../variables';
+
+.activites {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .container p {
+        width: 100%;
+    }
+
+    .cards-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 40px 0;
+    }
+}

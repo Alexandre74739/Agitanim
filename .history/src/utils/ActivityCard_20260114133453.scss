@@ -1,0 +1,8 @@
+@import '../utils/ActivityCard.scss'
+
+.activity-card {
+
+    label {
+        @include typo-label;
+    }
+}

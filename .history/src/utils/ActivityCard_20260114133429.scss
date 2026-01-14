@@ -1,0 +1,8 @@
+@import './
+
+.activity-card {
+
+    label {
+        @include typo-label;
+    }
+}

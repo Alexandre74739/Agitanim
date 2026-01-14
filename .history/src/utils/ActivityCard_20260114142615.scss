@@ -1,0 +1,68 @@
+@import '../variables';
+
+.activity-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 15px;
+    background-color: $color-white;
+    box-shadow: 0 0 8px $color-dark;
+    gap: 32px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    .img-content {
+        background-color: #b1b3ca; // La couleur grise/bleue de ton image
+        flex: 0 0 35%; // Largeur fixe pour la partie gauche
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 150px; // Ajuste selon la taille de tes icônes
+            object-fit: contain;
+        }
+    }
+
+    .card-content {
+        flex: 1;
+        padding: 20px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; // Espace le texte des labels
+
+        .author {
+            color: $color-primary; // Couleur violette du nom
+            font-weight: bold;
+            text-transform: capitalize;
+            margin-bottom: 4px;
+        }
+
+        h3 {
+            @include typo-h3;
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            color: $color-dark;
+        }
+
+        p {
+            font-size: 
+            
+        }
+
+        .labels {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+
+            label {
+                @include typo-label;
+            }
+        }
+    }
+
+
+}

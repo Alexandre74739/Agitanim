@@ -1,0 +1,63 @@
+@import '../variables';
+
+.activity-card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 15px;
+    background-color: $color-white;
+    box-shadow: 0 0 8px $color-dark;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        transform: scaleY(-4px);
+    }
+
+    .img-content {
+        background-color: $color-bg-soft;
+        flex: 0 0 35%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+    }
+
+    .card-content {
+        flex: 1;
+        padding: 20px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .author {
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            @include typo-h2;
+            margin-bottom: 16px;
+        }
+
+        .labels {
+            display: flex;
+            gap: 15px;
+            margin-top: 16px;
+
+            label {
+                @include typo-label;
+            }
+        }
+    }
+
+
+}

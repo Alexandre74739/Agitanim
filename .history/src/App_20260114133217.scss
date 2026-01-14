@@ -1,0 +1,48 @@
+@import '_variables';
+
+html {
+  // Empêche le header de grossir
+  overflow-y: scroll;
+}
+
+body {
+  background-color: $color-bg-light;
+}
+
+.container {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: $breakpoint-tablet;
+}
+
+h1 {
+  @include typo-h1;
+  margin-bottom: 32px;
+}
+
+h2 {
+  @include typo-h2;
+  margin-bottom: 24px
+}
+
+h3 {
+  @include typo-h3;
+}
+
+p {
+  @include typo-p;
+  margin-bottom: 48px;
+  max-width: $breakpoint-mobile;
+
+  @media (max-height: $breakpoint-tablet) {
+    max-width: 80%;
+  }
+}
+
+.activity-card label {
+  @include typo-label;
+}

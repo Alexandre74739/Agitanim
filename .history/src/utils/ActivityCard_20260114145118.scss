@@ -1,0 +1,75 @@
+@import '../variables';
+
+.activity-card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin: 0 5%;
+    max-width: $breakpoint-desktop;
+    border-radius: 15px;
+    background-color: $color-white;
+    box-shadow: 0 0 8px $color-dark;
+    overflow: hidden;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    .img-content {
+        background-color: $color-bg-soft;
+        flex: 0 0 35%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+        }
+    }
+
+    .card-content {
+        flex: 1;
+        // On garde 16px partout sauf à droite où on réduit à 0 ou 8px 
+        // pour laisser le texte s'approcher du bord
+        padding: 16px 8px 16px 16px;
+        display: flex;
+        flex-direction: column;
+
+        // Pour s'assurer que le contenu utilise toute la largeur du conteneur
+        width: 100%;
+
+        .author {
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            @include typo-h2;
+            margin-bottom: 16px;
+            // Permet au titre de prendre toute la largeur si besoin
+            width: 100%;
+        }
+
+        .description {
+            fon
+            width: 100%;
+        }
+
+        .labels {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+
+            label {
+                @include typo-label;
+            }
+        }
+    }
+
+
+}

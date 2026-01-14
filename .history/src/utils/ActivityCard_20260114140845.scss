@@ -1,0 +1,22 @@
+@import '../variables';
+
+.activity-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: $color-white;
+    box-shadow: 0 0 8px $color-dark;
+    gap: 24px;
+
+    img {
+        
+    }
+
+    label {
+        @include typo-label;
+    }
+
+
+}
