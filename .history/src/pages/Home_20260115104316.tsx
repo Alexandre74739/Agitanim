@@ -16,7 +16,7 @@ function Home() {
       <Activites 
       showLoadMore={true}
       showInfosBtn={false}
-      showFiltres={false}/>
+      showFiltres/>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import Activites from "../components/sections/Activites";
 import Hero from "../components/sections/Hero";
 
 const Jeux = () => {
@@ -11,10 +10,9 @@ const Jeux = () => {
         showIcons={false}
         showForm={false}
       />
-      <Activites
-        showLoadMore={false}
-        showInfosBtn={true}
-        showFiltres={true}/>
+      <Activites 
+      showLoadMore={false}
+      showInfosBtn={true}/>
     </div>
   );
 };

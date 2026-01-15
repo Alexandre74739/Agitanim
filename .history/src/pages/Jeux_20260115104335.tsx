@@ -14,7 +14,7 @@ const Jeux = () => {
       <Activites
         showLoadMore={false}
         showInfosBtn={true}
-        showFiltres={true}/>
+        showFiltres={true} />
     </div>
   );
 };

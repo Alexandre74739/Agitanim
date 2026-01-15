@@ -26,11 +26,10 @@ interface Activity {
 interface ActivitesProps {
   showLoadMore?: boolean;
   showInfosBtn?: boolean;
-  showFiltres?: boolean;
 }
 
 // CORRECTION : Extraction de showInfosBtn depuis les props
-function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = true }: ActivitesProps) {
+function Activites({ showLoadMore = true, showInfosBtn = true }: ActivitesProps) {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
 
@@ -121,46 +120,40 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
         </div>
       </Reveal>
 
-      {showFiltres && (
-        <Reveal>
-          <div className="filter-section">
-            <div className="search-bar">
-              <input
-                type="text"
-                placeholder="Rechercher une fiche..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            <div className="sliders-container">
-              <div className="filter-group">
-                <label>Durée (max {maxDuration} min)</label>
-                <input
-                  type="range"
-                  min="15"
-                  max="180"
-                  step="15"
-                  value={maxDuration}
-                  onChange={(e) => setMaxDuration(parseInt(e.target.value))}
-                />
-              </div>
-              <div className="filter-group">
-                <label>Âge ({targetAge} ans)</label>
-                <input
-                  type="range"
-                  min="3"
-                  max="17"
-                  step="1"
-                  value={targetAge}
-                  onChange={(e) => setTargetAge(parseInt(e.target.value))}
-                />
-              </div>
-            </div>
+      <div className="filter-section">
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Rechercher une fiche..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <div className="sliders-container">
+          <div className="filter-group">
+            <label>Durée (max {maxDuration} min)</label>
+            <input
+              type="range"
+              min="15"
+              max="180"
+              step="15"
+              value={maxDuration}
+              onChange={(e) => setMaxDuration(parseInt(e.target.value))}
+            />
           </div>
-        </Reveal>
-      )}
-
-
+          <div className="filter-group">
+            <label>Âge ({targetAge} ans)</label>
+            <input
+              type="range"
+              min="3"
+              max="17"
+              step="1"
+              value={targetAge}
+              onChange={(e) => setTargetAge(parseInt(e.target.value))}
+            />
+          </div>
+        </div>
+      </div>
 
       <div className="cards-grid">
         {activities.length > 0 ? (
@@ -178,6 +171,7 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
       </div>
 
       <div className="actions-area">
+        {/* CORRECTION : showInfosBtn est maintenant bien défini */}
         {showInfosBtn && hasMore && activities.length > 0 && (
           <Reveal>
             <button className="primary-btn" onClick={() => setLimit((prev) => prev + 3)}>
@@ -197,29 +191,31 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
         )}
       </div>
 
+      {selectedPdf && (
+        <div className="modal-overlay" onClick={() => setSelectedPdf(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <button
+                onClick={() => handleDownload(selectedPdf, "fiche-activite")}
+                className="download-btn-top"
+              >
+                Télécharger le PDF
+              </button>
+              <span className="esc-hint">Échap pour fermer</span>
+            </div>
+            <div className="pdf-body">
+              <iframe src={`${selectedPdf}#view=FitH&toolbar=0`} title="PDF" />
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="forms">
         <img src={form1} className="form1" alt="form" />
         <img src={form3} className="form2" alt="form" />
         <img src={form2} className="form3" alt="form" />
         <img src={form3} className="form4" alt="form" />
       </div>
-
-      {selectedPdf && (
-        <div className="modal-overlay" onClick={() => setSelectedPdf(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <iframe
-              src={`${selectedPdf}#view=FitH&toolbar=0&navpanes=0`}
-              title="Aperçu de l'activité"
-            />
-            <button
-              onClick={() => handleDownload(selectedPdf, "Mon-Activite")}
-              className="download-btn"
-            >
-              Télécharger le PDF
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

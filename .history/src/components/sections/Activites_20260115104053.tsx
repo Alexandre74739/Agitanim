@@ -30,7 +30,7 @@ interface ActivitesProps {
 }
 
 // CORRECTION : Extraction de showInfosBtn depuis les props
-function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = true }: ActivitesProps) {
+function Activites({ showLoadMore = true, showInfosBtn = true }: ActivitesProps) {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
 
@@ -115,52 +115,48 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
       <Reveal>
         <div className="container">
           <h2>Projets et jeux</h2>
-          <p>Concevoir des activités est l’essence même du métier d’animateur.
-            Chaque instant est pensé pour rythmer la journée et enrichir
-            l'expérience des enfants.</p>
+          <p>Concevoir des activités est l’essence même du métier d’animateur.</p>
         </div>
       </Reveal>
 
-      {showFiltres && (
-        <Reveal>
-          <div className="filter-section">
-            <div className="search-bar">
-              <input
-                type="text"
-                placeholder="Rechercher une fiche..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            <div className="sliders-container">
-              <div className="filter-group">
-                <label>Durée (max {maxDuration} min)</label>
-                <input
-                  type="range"
-                  min="15"
-                  max="180"
-                  step="15"
-                  value={maxDuration}
-                  onChange={(e) => setMaxDuration(parseInt(e.target.value))}
-                />
-              </div>
-              <div className="filter-group">
-                <label>Âge ({targetAge} ans)</label>
-                <input
-                  type="range"
-                  min="3"
-                  max="17"
-                  step="1"
-                  value={targetAge}
-                  onChange={(e) => setTargetAge(parseInt(e.target.value))}
-                />
-              </div>
-            </div>
+      
+      <Reveal>
+
+      </Reveal>
+      <div className="filter-section">
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Rechercher une fiche..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <div className="sliders-container">
+          <div className="filter-group">
+            <label>Durée (max {maxDuration} min)</label>
+            <input
+              type="range"
+              min="15"
+              max="180"
+              step="15"
+              value={maxDuration}
+              onChange={(e) => setMaxDuration(parseInt(e.target.value))}
+            />
           </div>
-        </Reveal>
-      )}
-
-
+          <div className="filter-group">
+            <label>Âge ({targetAge} ans)</label>
+            <input
+              type="range"
+              min="3"
+              max="17"
+              step="1"
+              value={targetAge}
+              onChange={(e) => setTargetAge(parseInt(e.target.value))}
+            />
+          </div>
+        </div>
+      </div>
 
       <div className="cards-grid">
         {activities.length > 0 ? (

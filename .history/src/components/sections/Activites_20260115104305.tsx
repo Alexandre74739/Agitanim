@@ -115,9 +115,7 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
       <Reveal>
         <div className="container">
           <h2>Projets et jeux</h2>
-          <p>Concevoir des activités est l’essence même du métier d’animateur.
-            Chaque instant est pensé pour rythmer la journée et enrichir
-            l'expérience des enfants.</p>
+          <p>Concevoir des activités est l’essence même du métier d’animateur.</p>
         </div>
       </Reveal>
 
