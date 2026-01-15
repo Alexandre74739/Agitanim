@@ -287,18 +287,18 @@
             font-family: $main-font;
             font-size: 20px;
             font-weight: 600;
-
-            @media (max-width: $breakpoint-mobile) {
-                display: flex;
-                flex-direction: column;
-            }
-
+@media (max-width: $breakpoint-mobile) {
+                    display: flex;
+                    flex-direction: column;
+                }
             .filter-group {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 16px;
                 width: 300px;
+
+                
 
                 input[type="range"] {
                     appearance: none;

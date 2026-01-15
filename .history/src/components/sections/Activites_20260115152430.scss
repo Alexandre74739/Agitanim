@@ -288,28 +288,24 @@
             font-size: 20px;
             font-weight: 600;
 
-            @media (max-width: $breakpoint-mobile) {
-                display: flex;
-                flex-direction: column;
-            }
-
             .filter-group {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 16px;
-                width: 300px;
 
                 input[type="range"] {
+                    -webkit-appearance: none; // Désactive le style par défaut (Chrome/Safari)
                     appearance: none;
                     width: 100%;
-                    background: transparent;
+                    background: transparent; // On gère le fond via le track
                     cursor: pointer;
 
                     &:focus {
                         outline: none;
                     }
 
+                    // --- LA BARRE (TRACK) ---
                     // Chrome, Safari, Opera, Edge
                     &::-webkit-slider-runnable-track {
                         width: 100%;
@@ -329,14 +325,14 @@
                     // Chrome, Safari, Opera, Edge
                     &::-webkit-slider-thumb {
                         -webkit-appearance: none;
-                        height: 32px;
-                        width: 32px;
+                        height: 24px;
+                        width: 24px;
                         border-radius: 50%;
                         background: $color-primary;
                         cursor: pointer;
-                        margin-top: -12px;
+                        margin-top: -8px;
                         border: 2px solid $color-white;
-                        box-shadow: 0 0 4px rgba($color-black, 0.1);
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                         transition: transform 0.2s ease;
 
                         &:active {
@@ -346,13 +342,13 @@
 
                     // Firefox
                     &::-moz-range-thumb {
-                        height: 32px;
-                        width: 32px;
+                        height: 24px;
+                        width: 24px;
                         border-radius: 50%;
                         background: $color-primary;
                         cursor: pointer;
                         border: 2px solid $color-white;
-                        box-shadow: 0 0 4px rgba($color-black, 0.1);
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                     }
                 }
             }

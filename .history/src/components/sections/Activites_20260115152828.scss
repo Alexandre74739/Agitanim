@@ -288,11 +288,10 @@
             font-size: 20px;
             font-weight: 600;
 
-            @media (max-width: $breakpoint-mobile) {
-                display: flex;
-                flex-direction: column;
-            }
-
+@media (max-width: $breakpoint-mobile) {
+                    display: flex;
+                    flex-direction: column;
+                }
             .filter-group {
                 display: flex;
                 flex-direction: column;
