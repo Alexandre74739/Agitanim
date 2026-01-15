@@ -36,7 +36,7 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
 
   // ÉTATS DES FILTRES ET PAGINATION
   const [searchTerm, setSearchTerm] = useState("");
-  const [minDuration, setMinDuration] = useState(15);
+  const [maxDuration, setMaxDuration] = useState(15);
   const [targetAge, setTargetAge] = useState(8);
   const [limit, setLimit] = useState(3);
   const [hasMore, setHasMore] = useState(true);
@@ -72,23 +72,21 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
         .range(0, limit - 1);
 
       if (searchTerm) query = query.ilike("title", `%${searchTerm}%`);
-      
-      // MODIFICATION ICI : On veut que la durée de l'activité soit >= minDuration
-      query = query.gte("duration_min", minDuration);
-      
+      query = query.lte("duration_min", maxDuration);
       query = query.lte("age_min", targetAge).gte("age_max", targetAge);
 
       const { data, error, count } = await query;
       if (error) throw error;
 
       setActivities(data || []);
+
       if (count !== null && data) {
         setHasMore(data.length < count);
       }
     } catch (err) {
       console.error("Erreur système:", err);
     }
-  }, [searchTerm, minDuration, targetAge, limit]);
+  }, [searchTerm, maxDuration, targetAge, limit]);
 
   useEffect(() => {
     loadData();
@@ -96,15 +94,7 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
 
   useEffect(() => {
     setLimit(3);
-  }, [searchTerm, minDuration, targetAge]);
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
-
-  useEffect(() => {
-    setLimit(3);
-  }, [searchTerm, minDuration, targetAge]);
+  }, [searchTerm, maxDuration, targetAge]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -144,14 +134,14 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
             </div>
             <div className="sliders-container">
               <div className="filter-group">
-                <label>Durée (minimum {minDuration}min)</label>
+                <label>Durée (max {maxDuration} min)</label>
                 <input
                   type="range"
                   min="15"
                   max="180"
                   step="15"
-                  value={minDuration}
-                  onChange={(e) => setMinDuration(parseInt(e.target.value))}
+                  value={maxDuration}
+                  onChange={(e) => setMaxDuration(parseInt(e.target.value))}
                 />
               </div>
               <div className="filter-group">

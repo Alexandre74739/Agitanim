@@ -1,0 +1,326 @@
+@import '../../variables';
+
+.activites {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+
+    .container p {
+        width: 100%;
+    }
+
+    .cards-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+        padding: 40px 0;
+
+        @media (max-width: $breakpoint-tablet) {
+            gap: 40px;
+        }
+    }
+
+    .primary-btn {
+        @include typo-primary-btn;
+    }
+
+    .forms {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1000;
+
+        .form1,
+        .form2,
+        .form3,
+        .form4 {
+            position: absolute;
+            pointer-events: none;
+            object-fit: contain;
+        }
+
+        .form1 {
+            top: 10%;
+            left: -280px;
+            transform: translateY(-50%);
+
+            @media (max-width: $breakpoint-desktop) {
+                left: -420px;
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+                left: -500px;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                width: 55vw;
+                left: -40%;
+            }
+        }
+
+        .form2 {
+            top: 50%;
+            right: -280px;
+            transform: translateY(-50%);
+
+            @media (max-width: $breakpoint-desktop) {
+                right: -420px;
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+                right: -500px;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                width: 55vw;
+                right: -40%;
+            }
+        }
+
+        .form3 {
+            bottom: -15%;
+            right: -280px;
+            transform: translateY(-50%);
+
+            @media (max-width: $breakpoint-desktop) {
+                bottom: -5%;
+                right: -420px;
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+                right: -500px;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                width: 55vw;
+                right: -40%;
+            }
+        }
+
+        .form4 {
+            bottom: 10%;
+            left: -280px;
+            transform: translateY(-50%);
+
+            @media (max-width: $breakpoint-desktop) {
+                left: -420px;
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+                left: -500px;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                width: 55vw;
+                left: -40%;
+            }
+        }
+    }
+
+    .modal-overlay {
+        position: fixed;
+        inset: 0; // Remplace top/left/width/height: 100%
+        background: rgba($color-black, 0.8);
+        backdrop-filter: blur(15px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: 0.3s ease-in-out;
+    }
+
+    .modal-content {
+        position: relative;
+        height: 95vh;
+        aspect-ratio: 1 / 1.414; // Ratio A4
+        background: $color-white;
+        border-radius: 4px;
+        box-shadow: 0 0 40px rgba($color-black, 0.8);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50%;
+            background: $color-primary;
+            color: $color-white;
+            cursor: pointer;
+            z-index: 20;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $color-accent;
+                transform: rotate(90deg) scale(1.1);
+            }
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .download-btn {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 16px;
+            right: 16px;
+            padding: 24px;
+            background-color: $color-primary;
+            color: $color-white;
+            border: none;
+            border-radius: 50px;
+            font-family: $main-font;
+            font-weight: bold;
+            font-size: 16px;
+            height: 40px;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $color-accent;
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+                top: 8px;
+                right: 8px;
+                height: 35px;
+                padding: 20px;
+            }
+        }
+    }
+
+    Voici l'intégration des filtres en respectant scrupuleusement ta structure SCSS existante. J'ai ajouté les styles pour la filter-section et le message no-results en utilisant tes variables et tes mixins pour une cohérence parfaite.
+1. Structure SCSS à ajouter
+
+Insère ce bloc à l'intérieur de ta classe .activites, idéalement juste avant ou après .cards-grid.
+SCSS
+
+@import '../../variables';
+
+.activites {
+    // ... tes styles existants
+
+    .filter-section {
+        width: 100%;
+        max-width: 900px; // Aligné sur ton design container
+        padding: 40px 20px;
+        z-index: 10; // Pour rester au dessus des forms
+
+        .search-bar {
+            width: 100%;
+            margin-bottom: 32px;
+
+            input {
+                width: 100%;
+                height: 50px;
+                padding: 0 24px;
+                border-radius: 50px;
+                border: 2px solid rgba($color-primary, 0.2);
+                background: rgba($color-white, 0.05);
+                color: $color-white;
+                font-family: $main-font;
+                font-size: 16px;
+                transition: 0.3s ease-in-out;
+
+                &:focus {
+                    outline: none;
+                    border-color: $color-primary;
+                    background: rgba($color-white, 0.1);
+                    box-shadow: 0 0 20px rgba($color-primary, 0.1);
+                }
+            }
+        }
+
+        .sliders-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+
+            @media (max-width: $breakpoint-tablet) {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .filter-group {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                label {
+                    @include typo-body; // Ou ta typo de texte standard
+                    color: $color-primary;
+                    font-weight: bold;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                input[type="range"] {
+                    -webkit-appearance: none;
+                    width: 100%;
+                    height: 4px;
+                    background: rgba($color-white, 0.2);
+                    border-radius: 2px;
+                    outline: none;
+
+                    &::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        background: $color-primary;
+                        cursor: pointer;
+                        transition: 0.2s ease-in-out;
+                        border: 2px solid $color-white;
+                    }
+
+                    &::-moz-range-thumb {
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        background: $color-primary;
+                        cursor: pointer;
+                        border: 2px solid $color-white;
+                    }
+
+                    &:active::-webkit-slider-thumb {
+                        transform: scale(1.2);
+                        background: $color-accent;
+                    }
+                }
+            }
+        }
+    }
+
+    .no-results {
+        width: 100%;
+        text-align: center;
+        padding: 60px 20px;
+        color: rgba($color-white, 0.6);
+        font-family: $main-font;
+        font-style: italic;
+        border: 1px dashed rgba($color-primary, 0.3);
+        border-radius: 20px;
+        margin: 40px 0;
+    }
+    
+}

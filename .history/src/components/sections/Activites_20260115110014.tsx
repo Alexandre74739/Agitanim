@@ -144,14 +144,14 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
             </div>
             <div className="sliders-container">
               <div className="filter-group">
-                <label>Durée (minimum {minDuration}min)</label>
+                <label>Durée (max {maxDuration} min)</label>
                 <input
                   type="range"
                   min="15"
                   max="180"
                   step="15"
-                  value={minDuration}
-                  onChange={(e) => setMinDuration(parseInt(e.target.value))}
+                  value={maxDuration}
+                  onChange={(e) => setMaxDuration(parseInt(e.target.value))}
                 />
               </div>
               <div className="filter-group">

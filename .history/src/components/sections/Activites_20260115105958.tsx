@@ -36,7 +36,7 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
 
   // ÉTATS DES FILTRES ET PAGINATION
   const [searchTerm, setSearchTerm] = useState("");
-  const [minDuration, setMinDuration] = useState(15);
+  const [minDuration, setMaxDuration] = useState(15);
   const [targetAge, setTargetAge] = useState(8);
   const [limit, setLimit] = useState(3);
   const [hasMore, setHasMore] = useState(true);
@@ -104,7 +104,7 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
 
   useEffect(() => {
     setLimit(3);
-  }, [searchTerm, minDuration, targetAge]);
+  }, [searchTerm, maxDuration, targetAge]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -144,14 +144,14 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
             </div>
             <div className="sliders-container">
               <div className="filter-group">
-                <label>Durée (minimum {minDuration}min)</label>
+                <label>Durée (max {maxDuration} min)</label>
                 <input
                   type="range"
                   min="15"
                   max="180"
                   step="15"
-                  value={minDuration}
-                  onChange={(e) => setMinDuration(parseInt(e.target.value))}
+                  value={maxDuration}
+                  onChange={(e) => setMaxDuration(parseInt(e.target.value))}
                 />
               </div>
               <div className="filter-group">

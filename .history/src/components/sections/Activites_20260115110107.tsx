@@ -144,7 +144,7 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
             </div>
             <div className="sliders-container">
               <div className="filter-group">
-                <label>Durée (minimum {minDuration}min)</label>
+                <label>Durée (minimum {minDuration} min)</label>
                 <input
                   type="range"
                   min="15"
