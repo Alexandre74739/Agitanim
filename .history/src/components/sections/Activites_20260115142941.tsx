@@ -137,8 +137,8 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
             <div className="search-bar">
               <input
                 type="text"
-                id="search"
-                placeholder=" "
+                id="search" // Ajout d'un ID pour l'accessibilité
+                placeholder=" " // Important : espace vide pour activer le CSS flottant
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />

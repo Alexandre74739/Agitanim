@@ -216,11 +216,7 @@
         padding: 0 24px;
 
         @media (max-width: $breakpoint-tablet) {
-            max-width: 500px;   
-        }
-
-        @media (max-width: $breakpoint-mobile) {
-            max-width: fit-content;
+            width: 500px;
         }
 
         .search-bar {

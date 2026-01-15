@@ -209,74 +209,78 @@
     }
 
     .filter-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: $breakpoint-mobile;
-        padding: 0 24px;
-
-        @media (max-width: $breakpoint-tablet) {
-            max-width: 500px;   
-        }
-
-        @media (max-width: $breakpoint-mobile) {
-            max-width: fit-content;
-        }
+        width: 100%;
+        max-width: 900px;
+        padding: 40px 20px;
+        z-index: 10;
 
         .search-bar {
-            position: relative;
-            width: 100%;
-            margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px; // Un peu plus d'espace en dessous vu la taille
 
-            input {
-                width: 100%;
-                padding: 16px 24px;
-                border-radius: 15px;
-                border: 2px solid $color-bg-soft;
-                background-color: $color-white;
-                font-family: $main-font;
-                font-size: 16px;
-                font-weight: 600;
-                color: $color-primary;
-                transition: 0.3s ease-in-out;
+    input {
+        width: 100%;
+        // Augmentation du padding : 22px haut/bas, 28px gauche/droite
+        padding: 22px 28px; 
+        border-radius: 18px; // Arrondi légèrement plus grand pour le style
+        border: 2px solid $color-bg-soft;
+        background-color: $color-white;
+        font-family: $main-font;
+        font-size: 18px; // Augmentation de la police
+        font-weight: 600;
+        color: $color-primary;
+        transition: all 0.3s ease-in-out;
 
-                &::placeholder {
-                    color: transparent;
-                }
-
-                &:focus {
-                    outline: none;
-                    border-color: $color-primary;
-                }
-
-                &:not(:placeholder-shown):invalid {
-                    border: 2px dashed $color-red;
-                }
-            }
-
-            label {
-                position: absolute;
-                left: 24px;
-                top: 18px;
-                font-family: $main-font;
-                font-size: 16px;
-                font-weight: 600;
-                color: $color-accent;
-                pointer-events: none;
-                transition: 0.3s ease-in-out;
-                padding: 0 4px;
-            }
-
-            input:focus+label,
-            input:not(:placeholder-shown)+label {
-                top: -12px;
-                left: 20px;
-                font-size: 14px;
-                font-weight: 700;
-                color: $color-primary;
-                background: linear-gradient(to bottom, transparent 66%, $color-white 33%);
-                padding: 0 8px;
-            }
+        &::placeholder {
+            color: transparent;
         }
+
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 8px 20px rgba($color-primary, 0.1); // Ombre plus douce
+        }
+
+        // --- RESPONSIVE ---
+        @media (max-width: $breakpoint-tablet) {
+            padding: 18px 24px;
+            font-size: 16px; // On revient à une taille standard sur mobile
+            border-radius: 15px;
+        }
+    }
+
+    label {
+        position: absolute;
+        left: 28px;
+        top: 22px; // Aligné sur le nouveau padding vertical
+        font-family: $main-font;
+        font-size: 18px; // Même taille que l'input pour être cohérent
+        font-weight: 600;
+        color: $color-accent;
+        pointer-events: none;
+        transition: all 0.2s ease-in-out;
+        padding: 0 4px;
+
+        @media (max-width: $breakpoint-tablet) {
+            top: 18px;
+            left: 24px;
+            font-size: 16px;
+        }
+    }
+
+    // --- LOGIQUE LABEL FLOTTANT ---
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+        top: -12px; // Reste au dessus de la bordure
+        left: 20px;
+        font-size: 14px;
+        font-weight: 700;
+        color: $color-primary;
+        // Ajustement du gradient pour couvrir la bordure de 2px
+        background: linear-gradient(to bottom, transparent 60%, $color-white 40%);
+        padding: 0 10px;
+    }
+}
     }
 }

@@ -209,19 +209,8 @@
     }
 
     .filter-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: $breakpoint-mobile;
-        padding: 0 24px;
-
-        @media (max-width: $breakpoint-tablet) {
-            max-width: 500px;   
-        }
-
-        @media (max-width: $breakpoint-mobile) {
-            max-width: fit-content;
-        }
+        width: $breakpoint-tablet;
+        padding: 40px 20px;
 
         .search-bar {
             position: relative;

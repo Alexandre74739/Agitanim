@@ -137,7 +137,7 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
             <div className="search-bar">
               <input
                 type="text"
-                id="search"
+                id="search" // Ajout d'un ID pour l'accessibilité
                 placeholder=" "
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}

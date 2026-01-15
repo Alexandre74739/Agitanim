@@ -72,10 +72,10 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
         .range(0, limit - 1);
 
       if (searchTerm) query = query.ilike("title", `%${searchTerm}%`);
-
+      
       // MODIFICATION ICI : On veut que la durée de l'activité soit >= minDuration
       query = query.gte("duration_min", minDuration);
-
+      
       query = query.lte("age_min", targetAge).gte("age_max", targetAge);
 
       const { data, error, count } = await query;
@@ -135,15 +135,15 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
         <Reveal>
           <div className="filter-section">
             <div className="search-bar">
-              <input
-                type="text"
-                id="search"
-                placeholder=" "
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <label htmlFor="search">Rechercher une fiche...</label>
-            </div>
+  <input
+    type="text"
+    id="search" // Ajout d'un ID pour l'accessibilité
+    placeholder=" " // Important : espace vide pour activer le CSS flottant
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
+  <label htmlFor="search">Rechercher une fiche...</label>
+</div>
             <div className="sliders-container">
               <div className="filter-group">
                 <label>Durée (minimum {minDuration}min)</label>

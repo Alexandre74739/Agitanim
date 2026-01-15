@@ -209,27 +209,11 @@
     }
 
     .filter-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: $breakpoint-mobile;
-        padding: 0 24px;
 
-        @media (max-width: $breakpoint-tablet) {
-            max-width: 500px;   
-        }
-
-        @media (max-width: $breakpoint-mobile) {
-            max-width: fit-content;
-        }
+        
 
         .search-bar {
-            position: relative;
             width: 100%;
-            margin-bottom: 40px;
-
-            input {
-                width: 100%;
                 padding: 16px 24px;
                 border-radius: 15px;
                 border: 2px solid $color-bg-soft;
@@ -238,7 +222,7 @@
                 font-size: 16px;
                 font-weight: 600;
                 color: $color-primary;
-                transition: 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
 
                 &::placeholder {
                     color: transparent;
@@ -252,31 +236,6 @@
                 &:not(:placeholder-shown):invalid {
                     border: 2px dashed $color-red;
                 }
-            }
-
-            label {
-                position: absolute;
-                left: 24px;
-                top: 18px;
-                font-family: $main-font;
-                font-size: 16px;
-                font-weight: 600;
-                color: $color-accent;
-                pointer-events: none;
-                transition: 0.3s ease-in-out;
-                padding: 0 4px;
-            }
-
-            input:focus+label,
-            input:not(:placeholder-shown)+label {
-                top: -12px;
-                left: 20px;
-                font-size: 14px;
-                font-weight: 700;
-                color: $color-primary;
-                background: linear-gradient(to bottom, transparent 66%, $color-white 33%);
-                padding: 0 8px;
-            }
         }
     }
 }
