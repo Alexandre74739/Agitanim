@@ -6,7 +6,6 @@
     align-items: center;
     width: 100%;
     overflow: hidden;
-    margin-top: 40px;
 
     .footer-divider,
     .footer-divider-inverse {
@@ -22,7 +21,8 @@
 
     .text-container {
         background-color: $color-primary;
-        width: 100vw;
+        width: 10vw;
+        max-width: $breakpoint-desktop;
         margin: -20px 0;
         text-align: center;
         display: flex;

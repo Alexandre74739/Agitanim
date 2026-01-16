@@ -6,7 +6,6 @@
     align-items: center;
     width: 100%;
     overflow: hidden;
-    margin-top: 40px;
 
     .footer-divider,
     .footer-divider-inverse {
@@ -21,28 +20,24 @@
     }
 
     .text-container {
-        background-color: $color-primary;
-        width: 100vw;
-        margin: -20px 0;
+        width: 100%;
+        max-width: 900px;
+        padding: 60px 20px;
+        margin: 0 auto;
         text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 20px;
-        z-index: 10;
 
-        h2,
-        p {
-            color: $color-white;
-            width: 100%;
-            margin: 0;
-        }
+
     }
 }
 
+// Ajustement pour les petits écrans
 @media (max-width: 768px) {
     .text-container {
-        padding: 40px 16px;
+        padding: 40px 15px;
     }
 }

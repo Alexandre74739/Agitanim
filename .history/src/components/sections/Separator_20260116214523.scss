@@ -6,14 +6,13 @@
     align-items: center;
     width: 100%;
     overflow: hidden;
-    margin-top: 40px;
 
     .footer-divider,
     .footer-divider-inverse {
         width: 100vw;
-        height: auto;
+        height: auto; // Garde les proportions
         display: block;
-        object-fit: cover;
+        object-fit: cover; // S'assure que l'image couvre l'espace sans se déformer
     }
 
     .footer-divider-inverse {
@@ -21,28 +20,25 @@
     }
 
     .text-container {
-        background-color: $color-primary;
-        width: 100vw;
-        margin: -20px 0;
-        text-align: center;
+        // On définit une largeur max pour la lecture, mais on centre le bloc
+        width: 100%;
+        max-width: 900px;
+        padding: 60px 20px; // Espace vertical entre les images et le texte
+        margin: 0 auto;
+        text-align: center; // Centre le texte à l'intérieur
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 20px;
-        z-index: 10;
 
-        h2,
-        p {
-            color: $color-white;
-            width: 100%;
-            margin: 0;
-        }
+       
     }
 }
 
+// Ajustement pour les petits écrans
 @media (max-width: 768px) {
     .text-container {
-        padding: 40px 16px;
+        padding: 40px 15px;
     }
 }

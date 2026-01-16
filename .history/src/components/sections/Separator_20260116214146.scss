@@ -1,0 +1,57 @@
+@import '../../variables';
+
+.separator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    gap: 40px;
+
+    .footer-divider {
+        width: 100%;
+        max-width: 600px; // Ajuste selon la taille de ton image
+        height: auto;
+        object-fit: contain;
+        opacity: 0.8;
+
+        &-inverse {
+            @extend .footer-divider;
+            transform: rotate(180deg); // Inverse l'image du bas
+        }
+    }
+
+    .text-container {
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h2 {
+            font-family: $main-font; // Ta variable de police
+            font-size: clamp(1.8rem, 5vw, 2.5rem); // Taille fluide
+            color: $color-primary;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        
+    }
+}
+
+// Version Mobile
+@media (max-width: 768px) {
+    .separator {
+        padding: 40px 15px;
+        gap: 25px;
+
+        .footer-divider {
+            max-width: 80%; // Plus petit sur mobile
+        }
+    }
+}

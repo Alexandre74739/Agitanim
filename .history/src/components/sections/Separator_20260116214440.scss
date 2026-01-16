@@ -1,0 +1,67 @@
+@import '../../variables';
+
+Pour que vos images de séparation occupent toute la largeur de l'écran et que votre texte soit parfaitement centré au milieu de la composition, voici le code SCSS optimisé.
+
+L'astuce consiste à utiliser width: 100vw et margin-left: 50% pour sortir du conteneur parent si celui-ci a une largeur limitée, ou plus simplement à s'assurer que le composant parent n'est pas bridé.
+Code SCSS
+SCSS
+
+@import "../../styles/variables.scss";
+
+.separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  // On s'assure qu'aucun padding latéral ne bloque l'image
+  overflow: hidden; 
+
+  .footer-divider, 
+  .footer-divider-inverse {
+    width: 100vw;       // Prend toute la largeur de la fenêtre
+    height: auto;       // Garde les proportions
+    display: block;
+    object-fit: cover;  // S'assure que l'image couvre l'espace sans se déformer
+  }
+
+  .footer-divider-inverse {
+    transform: rotate(180deg);
+  }
+
+  .text-container {
+    // On définit une largeur max pour la lecture, mais on centre le bloc
+    width: 100%;
+    max-width: 900px; 
+    padding: 60px 20px; // Espace vertical entre les images et le texte
+    margin: 0 auto;
+    text-align: center; // Centre le texte à l'intérieur
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    h2 {
+      font-family: $title-font;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      color: $color-primary;
+      margin: 0;
+      text-transform: uppercase; // Optionnel : pour donner plus d'impact
+    }
+
+    p {
+      font-family: $main-font;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: $color-text-soft;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
+// Ajustement pour les petits écrans
+@media (max-width: 768px) {
+  .text-container {
+    padding: 40px 15px;
+  }
+}

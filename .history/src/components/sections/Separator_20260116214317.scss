@@ -1,0 +1,48 @@
+@import '../../variables';
+
+.separator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    gap: 40px;
+
+    @media (max-width: 768px) {
+        .separator {
+            padding: 40px 15px;
+            gap: 25px;
+
+            .footer-divider {
+                max-width: 80%;
+            }
+        }
+
+        .footer-divider {
+            width: 100%;
+
+            &-inverse {
+                @extend .footer-divider;
+                transform: rotate(180deg);
+            }
+        }
+
+        .text-container {
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            p {
+                text-align: center;
+            }
+        }
+    }
+
+
+}
