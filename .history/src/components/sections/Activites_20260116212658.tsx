@@ -73,7 +73,9 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
 
       if (searchTerm) query = query.ilike("title", `%${searchTerm}%`);
 
-      query = query.lte("duration_min", minDuration).gte("duration_max", minDuration);
+      // MODIFICATION ICI : On veut que la durée de l'activité soit >= minDuration
+      query = query.gte("duration_min", minDuration);
+
       query = query.lte("age_min", targetAge).gte("age_max", targetAge);
 
       const { data, error, count } = await query;
@@ -162,10 +164,10 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
                   max="180"
                   step="15"
                   value={minDuration}
-                  onChange={(e) => setMinDuration(Number(e.target.value))}
+                  onChange={(e) => setMinDuration(parseInt(e.target.value))}
                 />
               </div>
-
+              
             </div>
           </div>
         </Reveal>
