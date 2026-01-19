@@ -1,7 +1,7 @@
 import { Reveal } from "../layout/Reveal";
 import form1 from "../../assets/forme1.png";
 import CardInclusion from "../common/CardInclusion";
-import "./ListeHandicap.scss";
+im
 
 function ListeHandicap() {
     return (

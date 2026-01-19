@@ -16,7 +16,6 @@
 
     @media (min-width: $breakpoint-tablet) {
         grid-template-columns: repeat(3, 1fr);
-        margin: 80px auto;
     }
 
     .card-inclusion {
@@ -73,7 +72,6 @@
             .card-title {
                 @include typo-h3;
                 font-size: 36px;
-                color: $color-dark;
                 margin-bottom: 32px;
             }
 
