@@ -1,0 +1,134 @@
+@import '../../variables';
+
+.inclusion-section {
+    padding: 100px 24px;
+    background-color: $color-bg-light;
+    
+    .container {
+        max-width: $breakpoint-desktop;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        @include typo-h2;
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+        
+        // Petit détail UX : une ligne de soulignement élégante
+        &::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: $color-secondary;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+    }
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.card-inclusion {
+    background-color: $color-white;
+    border-radius: 24px; // Arrondis plus modernes
+    width: 100%;
+    max-width: 320px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 20px rgba($color-dark, 0.04);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba($color-primary, 0.05);
+    position: relative;
+
+    &:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba($color-primary, 0.12);
+        border-color: rgba($color-primary, 0.1);
+
+        .icon-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .btn-fake {
+            background-color: $color-accent;
+            transform: translateY(-2px);
+        }
+    }
+
+    &:active {
+        transform: scale(0.98); // Feedback tactile au clic
+    }
+
+    .icon-wrapper {
+        background-color: $color-bg-soft;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 24px 24px 0 0;
+        overflow: hidden;
+
+        img {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+    }
+
+    .card-content {
+        padding: 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+
+        .author-tag {
+            font-family: $main-font;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            color: rgba($color-primary, 0.6);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            @include typo-h3;
+            color: $color-dark;
+            margin-bottom: 24px;
+        }
+
+        .btn-fake {
+            @include typo-primary-btn;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 50px;
+            min-width: unset; // On prend toute la largeur pour plus de confort mobile
+            font-size: 16px;
+            pointer-events: none; // La carte entière est cliquable
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .inclusion-section {
+        padding: 60px 16px;
+    }
+    
+    .card-inclusion {
+        max-width: 100%;
+    }
+}

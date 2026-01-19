@@ -1,0 +1,2 @@
+import "./CardInclusion.scss";
+

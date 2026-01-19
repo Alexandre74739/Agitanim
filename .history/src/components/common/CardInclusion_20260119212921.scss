@@ -1,0 +1,76 @@
+@import '../../variables';
+
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    max-width: $breakpoint-desktop;
+    margin: 0 auto;
+
+    @media (max-width: $breakpoint-mobile) {
+        .card-inclusion {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+
+    .card-inclusion {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-white;
+        border-radius: 15px;
+        width: 260px;
+        overflow: hidden;
+        box-shadow: 0 0 8px $color-black;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-8px);
+        }
+
+        .icon-container {
+            background-color: $color-bg-soft;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+
+            img {
+                width: 150px;
+                object-fit: contain;
+            }
+        }
+
+        .card-content {
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            .author {
+                font-family: $main-font;
+                font-size: 16px;
+                color: $color-primary;
+                margin: 0;
+            }
+
+            .card-title {
+                @include typo-h3;
+                margin: 0;
+                color: $color-dark;
+            }
+
+            .btn-voir-plus {
+                @include typo-primary-btn;
+                min-width: 160px;
+                height: 45px;
+                font-size: 16px;
+                margin-top: 10px;
+            }
+        }
+    }
+}

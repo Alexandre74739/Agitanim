@@ -1,0 +1,80 @@
+@import '../../variables';
+
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    max-width: $breakpoint-desktop;
+    margin: 0 auto;
+
+    .card-inclusion {
+        background-color: $color-white;
+        border-radius: 15px;
+        width: 300px;
+        overflow: hidden;
+        box-shadow: 0 0 12px $color-black;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon-container {
+            background-color: $color-bg-soft;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+
+            img {
+                width: 100px;
+                height: 100px;
+                object-fit: contain;
+            }
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            .author {
+                font-family: $main-font;
+                font-size: 12px;
+                color: $color-primary;
+                text-transform: uppercase;
+                margin: 0;
+            }
+
+            .card-title {
+                @include typo-h3;
+                margin: 0;
+                color: $color-dark;
+            }
+
+            .btn-voir-plus {
+                @include typo-primary-btn;
+                min-width: 160px;
+                height: 45px;
+                font-size: 16px;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: $breakpoint-mobile) {
+    .card-inclusion {
+        width: 100%;
+        max-width: 300px;
+    }
+}

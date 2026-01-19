@@ -1,0 +1,5 @@
+function Liste-handicap() {
+    return (
+        .
+    );
+}

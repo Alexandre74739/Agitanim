@@ -1,0 +1,97 @@
+@import '../../variables';
+
+.liste-handicap {
+    padding: 60px 20px;
+    background-color: transparent; // Ou $color-bg-light selon ton souhait
+}
+
+.cards-grid {
+    display: grid;
+    gap: 32px;
+    margin: 0 auto;
+    max-width: $breakpoint-desktop;
+    justify-content: center;
+
+    // Responsive : 1 col mobile, 2 tablet, 3 desktop
+    grid-template-columns: repeat(1, 1fr);
+
+    @media (min-width: $breakpoint-mobile) {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 650px;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 950px;
+    }
+}
+
+.card-inclusion {
+    background-color: $color-white;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Ombre légère pour le relief
+    border: 1px solid #e2e2e2; // Petit contour comme sur l'image
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-top {
+        background-color: $color-bg-soft; // La couleur bleue/grise de ton image
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px;
+
+        .card-icon {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .card-bottom {
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .card-author {
+            font-family: $main-font;
+            font-size: 13px;
+            font-weight: 600;
+            color: $color-primary; // Couleur bleu foncé
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-family: $main-font;
+            font-size: 26px; // Titre imposant
+            font-weight: 800;
+            color: $color-dark;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .btn-voir-plus {
+            // On utilise ton mixin mais on ajuste pour coller à l'image
+            @include typo-primary-btn;
+            background-color: $color-primary;
+            min-width: 160px;
+            height: 45px;
+            font-size: 16px;
+            border-radius: 10px;
+            
+            &:hover {
+                background-color: lighten($color-primary, 10%);
+                transform: none; // On garde le bouton stable car la carte bouge déjà
+            }
+        }
+    }
+}

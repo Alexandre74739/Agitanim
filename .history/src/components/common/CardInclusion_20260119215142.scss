@@ -1,0 +1,97 @@
+@import '../../variables';
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 40px;
+    max-width: $breakpoint-desktop;
+    margin: 60px auto;
+    padding: 0 24px;
+
+    @media (min-width: $breakpoint-mobile) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-inclusion {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-white;
+        border-radius: 15px;
+        width: 100%;
+        max-width: 320px;
+        overflow: hidden;
+        box-shadow: 0 0 8px $color-black; 
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 12px $color-black; 
+
+            .icon-container img {
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+
+        .icon-container {
+            background-color: $color-bg-soft;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            img {
+                width: 150px;
+                object-fit: contain;
+                z-index: 1;
+                transition: 0.3s ease-in-out;
+            }
+        }
+
+        .card-content {
+            padding: 32px 24px;
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .author {
+                font-family: $main-font;
+                font-size: 11px;
+                font-weight: 800;
+                color: $color-accent;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                margin-bottom: 12px;
+            }
+
+            .card-title {
+                @include typo-h3;
+                font-size: 24px;
+                color: $color-dark;
+                margin-bottom: 24px;
+                line-height: 1.2;
+                min-height: 58px; 
+                display: flex;
+                align-items: center;
+            }
+
+            button {
+                @include typo-primary-btn;
+                margin-top: auto;
+                width: 100%;
+                
+                &:hover {
+                    background-color: $color-accent;
+                }
+            }
+        }
+    }
+}

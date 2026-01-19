@@ -1,0 +1,109 @@
+@import '../../variables';
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 40px;
+    max-width: $breakpoint-desktop;
+    margin: 60px auto;
+    padding: 0 24px;
+    justify-content: center; 
+    justify-items: center; 
+
+    @media (min-width: $breakpoint-mobile) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-inclusion {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-white;
+        border-radius: 15px;
+        width: 100%;
+        max-width: 320px;
+        overflow: hidden;
+        box-shadow: 
+            0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+        
+        border: 1px solid rgba($color-primary, 0.08);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba($color-primary, 0.18);
+            border-color: rgba($color-secondary, 0.4);
+
+            .icon-container img {
+                transform: scale(1.1) rotate(2deg);
+            }
+        }
+
+        .icon-container {
+            background-color: $color-bg-soft;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            position: relative;
+
+            img {
+                width: 150px;
+                object-fit: contain;
+                z-index: 1;
+                transition: transform 0.4s ease;
+            }
+        }
+
+        .card-content {
+            padding: 28px 24px;
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .author {
+                font-family: $main-font;
+                font-size: 11px;
+                font-weight: 800;
+                color: $color-accent;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                margin-bottom: 12px;
+            }
+
+            .card-title {
+                @include typo-h3;
+                font-size: 24px;
+                color: $color-dark;
+                margin-bottom: 24px;
+                line-height: 1.2;
+                min-height: 58px; 
+                display: flex;
+                align-items: center;
+            }
+
+            .btn-voir-plus {
+                @include typo-primary-btn;
+                margin-top: auto;
+                width: 100%;
+                min-width: unset;
+                height: 52px;
+                border-radius: 14px;
+                font-size: 16px;
+                box-shadow: 0 4px 12px rgba($color-primary, 0.2);
+                
+                &:hover {
+                    background-color: $color-accent;
+                }
+            }
+        }
+    }
+}

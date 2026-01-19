@@ -1,0 +1,92 @@
+@import '../../variables';
+
+.cards-grid {
+    display: grid;
+    // Mobile par défaut : 1 colonne qui prend toute la largeur
+    grid-template-columns: 1fr; 
+    gap: 32px;
+    max-width: $breakpoint-desktop;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    // Tablette : 2 colonnes (à partir de 768px ou ton breakpoint mobile)
+    @media (min-width: $breakpoint-mobile) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Desktop : 3 colonnes (à partir de 1024px ou ton breakpoint tablet)
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-inclusion {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-white;
+        border-radius: 20px; // Arrondi plus moderne
+        width: 100%; // La carte prend la largeur de sa cellule de grille
+        overflow: hidden;
+        // UX : Ombre plus douce que le noir pur
+        box-shadow: 0 10px 30px rgba($color-dark, 0.08); 
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba($color-primary, 0.15);
+        }
+
+        .icon-container {
+            background-color: $color-bg-soft;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+
+            img {
+                width: 120px; // Un peu plus petit pour laisser respirer
+                height: 120px;
+                object-fit: contain;
+            }
+        }
+
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            flex-grow: 1; // Permet aux cartes d'avoir la même hauteur
+
+            .author {
+                font-family: $main-font;
+                font-size: 12px; // Plus petit pour la hiérarchie visuelle
+                font-weight: 700;
+                color: rgba($color-primary, 0.6);
+                margin: 0;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .card-title {
+                @include typo-h3;
+                margin: 0;
+                color: $color-dark;
+                min-height: 60px; // Aligne les boutons si les titres font 1 ou 2 lignes
+                display: flex;
+                align-items: center;
+            }
+
+            .btn-voir-plus {
+                @include typo-primary-btn;
+                margin-top: auto; // Pousse le bouton en bas de la carte
+                width: 100%; // Bouton plus large pour mobile/tablette
+                min-width: unset;
+                height: 48px;
+                font-size: 16px;
+            }
+        }
+    }
+}

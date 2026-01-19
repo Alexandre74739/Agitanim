@@ -1,0 +1,119 @@
+@import '../../variables';
+
+.handicap-section {
+    padding: 60px 24px;
+    background-color: $color-bg-light;
+}
+
+.cards-grid {
+    display: grid;
+    // Par défaut : 1 colonne (mobile)
+    grid-template-columns: repeat(1, 1fr);
+    gap: 32px;
+    max-width: 1100px; // Largeur pour 3 cartes de ~320px + gaps
+    margin: 0 auto;
+    justify-content: center;
+
+    // Tablette : 2 colonnes
+    @media (min-width: $breakpoint-mobile) {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 720px;
+    }
+
+    // Desktop : 3 colonnes
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: $breakpoint-desktop;
+    }
+}
+
+.card-inclusion {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-white;
+    border-radius: 20px; // Arrondis plus doux
+    overflow: hidden;
+    // Ombre subtile au lieu du noir pur
+    box-shadow: 0 10px 30px rgba($color-primary, 0.08); 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: 1px solid rgba($color-primary, 0.05);
+
+    &:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba($color-primary, 0.15);
+        border-color: $color-secondary;
+
+        .icon-container img {
+            transform: scale(1.1);
+        }
+
+        .btn-voir-plus {
+            background-color: $color-accent;
+            transform: scale(1.05);
+        }
+    }
+
+    .icon-container {
+        background-color: $color-bg-soft;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+    }
+
+    .card-content {
+        padding: 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+
+        .author {
+            font-family: $main-font;
+            font-size: 11px;
+            font-weight: 700;
+            color: rgba($color-primary, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .card-title {
+            @include typo-h3;
+            font-size: 22px;
+            color: $color-dark;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+        }
+
+        .card-footer {
+            margin-top: auto; // Pousse le bouton vers le bas si les titres n'ont pas la même taille
+            padding-top: 10px;
+        }
+
+        .btn-voir-plus {
+            @include typo-primary-btn;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100%; // Bouton large pour UX mobile
+            height: 48px;
+            font-size: 16px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+    }
+}
