@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import Jeux from "./pages/Jeux";
 import Inclusion from "./pages/Inclusion";
 import Contact from "./pages/Contact";
+import MentionsLegales from "./pages/RGPD/MentionsLegales";
+import DroitsReserves from "./pages/RGPD/DroitsReserves";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/jeux" element={<Jeux />} />
           <Route path="/inclusion" element={<Inclusion />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/droits-reserves" element={<DroitsReserves />} />
         </Routes>
       </main>
 

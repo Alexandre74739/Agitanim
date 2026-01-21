@@ -48,10 +48,10 @@ function Footer() {
           <ul className="footer-legal">
             <li>© 2025 Alexandre-Philippe Perez</li>
             <li>
-              <Link to="/" onClick={() => window.scrollTo({top: 0})}>Tous droits réservés</Link>
+              <Link to="/droits-reserves" onClick={() => window.scrollTo({top: 0})}>Tous droits réservés</Link>
             </li>
             <li>
-              <Link to="/" onClick={() => window.scrollTo({top: 0})}>Mentions légales & RGPD</Link>
+              <Link to="/mentions-legales" onClick={() => window.scrollTo({top: 0})}>Mentions légales & RGPD</Link>
             </li>
           </ul>
         </div>
