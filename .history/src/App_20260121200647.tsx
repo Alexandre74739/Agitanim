@@ -10,7 +10,6 @@ import Inclusion from "./pages/Inclusion";
 import Contact from "./pages/Contact";
 import MentionsLegales from "./pages/RGPD/MentionsLegales";
 import DroitsReserves from "./pages/RGPD/DroitsReserves";
-import HandicapDetail from "./pages/HandicapDetail";
 
 function App() {
   return (
@@ -25,7 +24,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/droits-reserves" element={<DroitsReserves />} />
-          <Route path="/inclusion/:slug" element={<HandicapDetail />} />
+          <Route path=""
         </Routes>
       </main>
 

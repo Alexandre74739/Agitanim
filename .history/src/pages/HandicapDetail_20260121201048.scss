@@ -1,0 +1,107 @@
+@import '../../variables';
+
+.handicap-detail {
+    width: 100%;
+    background-color: $color-bg-light;
+
+    .container {
+        max-width: $breakpoint-desktop;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    // HERO SECTION
+    .detail-hero {
+        padding: 140px 0 80px 0;
+        background: linear-gradient(180deg, $color-bg-secondary 0%, $color-bg-light 100%);
+        
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+
+            @media (max-width: $breakpoint-tablet) {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .hero-content {
+            flex: 1;
+
+            .label { @include typo-label; margin-bottom: 20px; }
+            h1 { @include typo-h1; margin-bottom: 24px; color: $color-primary; }
+            p { @include typo-p; margin-bottom: 32px; max-width: 600px; }
+
+            .hero-actions {
+                display: flex;
+                gap: 20px;
+                @media (max-width: $breakpoint-mobile) {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .btn-primary { @include typo-primary-btn; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+                .btn-secondary { @include typo-secondary-btn; display: flex; align-items: center; justify-content: center; }
+            }
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            img { max-width: 100%; height: auto; border-radius: 30px; }
+        }
+    }
+
+    // BODY CONTENT
+    .detail-body {
+        padding: 80px 0;
+
+        .content-section {
+            margin-bottom: 60px;
+            h2 { @include typo-h2; margin-bottom: 24px; color: $color-dark; }
+            p { @include typo-p; font-weight: 400; color: $color-dark; }
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+
+            @media (max-width: $breakpoint-mobile) { grid-template-columns: 1fr; }
+
+            .info-card {
+                background: $color-white;
+                padding: 40px;
+                border-radius: 25px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+                h3 { @include typo-h3; color: $color-primary; margin-bottom: 20px; }
+                ul { 
+                    padding-left: 20px;
+                    li { @include typo-p; font-size: 18px; margin-bottom: 12px; color: $color-dark; }
+                }
+
+                &.highlight {
+                    background-color: $color-primary;
+                    h3 { color: $color-secondary; }
+                    li { color: $color-white; }
+                }
+            }
+        }
+
+        .next-steps {
+            text-align: center;
+            background-color: $color-bg-secondary;
+            padding: 60px;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+
+            .btn-primary { @include typo-primary-btn; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+        }
+    }
+}

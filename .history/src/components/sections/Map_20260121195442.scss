@@ -1,0 +1,331 @@
+@import '../../variables';
+
+.map {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    overflow: hidden;
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 64px 20px;
+    }
+
+    .container {
+        margin-bottom: 80px;
+        width: 100%;
+
+        h2 {
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+
+        p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            margin-bottom: 48px;
+        }
+    }
+
+    .items {
+        position: relative;
+        width: 100%;
+        max-width: $breakpoint-desktop;
+        margin: 0 auto;
+
+        .roadMap {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .step-container {
+            position: absolute;
+            z-index: 5;
+
+            @media (max-width: $breakpoint-tablet) {
+                width: 75%;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                width: auto;
+
+                .stepContent {
+
+                    h3 {
+                        font-size: 16px;
+                    }
+
+                    p {
+                        display: none !important;
+                    }
+                }
+            }
+
+            .rightStepCard,
+            .leftStepCard {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                width: 100%;
+            }
+
+            .leftStepCard {
+                flex-direction: row-reverse;
+                text-align: right;
+
+                .stepContent {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                }
+            }
+
+            .rightStepCard {
+                text-align: left;
+
+                .stepContent {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+
+            .stepContent {
+                flex: 1;
+
+                p {
+                    font-size: 18px;
+                    margin-bottom: 0;
+                    max-width: none;
+
+                    @media (max-width: $breakpoint-tablet) {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            span {
+                width: 80px;
+                height: 80px;
+                min-width: 80px;
+                font-size: 40px;
+                font-family: $main-font;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $color-white;
+                border-radius: 50%;
+                box-shadow: 0 0 12px $color-primary;
+                transition: 0.3s ease-in-out;
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0 0 20px $color-secondary;
+                }
+
+                @media (max-width: $breakpoint-mobile) {
+                    width: 40px;
+                    height: 40px;
+                    min-width: 40px;
+                    font-size: 20px;
+                    box-shadow: 0 0 12px $color-primary;
+                }
+            }
+        }
+
+        .step-1 {
+            top: 16%;
+            left: 22.5%;
+        }
+
+        .step-2 {
+            top: 30.5%;
+            right: 22.5%;
+
+            @media (max-width: $breakpoint-tablet) {
+                top: 29.5%;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                top: 30.25%;
+            }
+        }
+
+        .step-3 {
+            top: 44%;
+            left: 33%;
+
+            @media (max-width: $breakpoint-tablet) {
+                top: 43.5%;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                top: 44.5%;
+            }
+        }
+
+        .step-4 {
+            top: 59%;
+            right: 10%;
+        }
+
+        .step-5 {
+            bottom: 20%;
+            left: 10%;
+
+            @media (max-width: $breakpoint-mobile) {
+                bottom: 19%;
+            }
+        }
+    }
+
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        padding: 20px;
+        animation: 0.3s ease-in-out;
+    }
+
+    .modal-card {
+        background: $color-white;
+        padding: 40px 32px;
+        border-radius: 25px;
+        max-width: 450px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 0 20px $color-primary;
+        animation: 0.3s ease-in-out;
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: $color-primary;
+
+            &:hover {
+                color: $color-accent;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+
+            span {
+                padding: 32px;
+                background: $color-white;
+                color: $color-primary;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+                font-weight: bold;
+
+                &:hover {
+                    box-shadow: 0 0 12px $color-primary;
+                }
+            }
+
+            h3 {
+                font-size: 24px;
+                color: $color-primary;
+                margin: 0;
+            }
+        }
+
+        p {
+            font-size: 16px;
+            color: $color-primary;
+            margin: 0;
+        }
+    }
+
+    .forms {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1000;
+
+        .form1,
+        .form2,
+        .form3 {
+            position: absolute;
+            pointer-events: none;
+            object-fit: contain;
+        }
+
+        .form1 {
+            top: 55%;
+            left: -280px;
+            transform: translateY(-50%);
+
+            @media (max-width: $breakpoint-desktop) {
+                left: -420px;
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+                left: -500px;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                width: 55vw;
+                left: -40%;
+            }
+        }
+
+        .form2 {
+            top: 25%;
+            right: -280px;
+            transform: translateY(-50%);
+
+            @media (max-width: $breakpoint-tablet) {
+                right: -500px;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                width: 55vw;
+                right: -45%;
+            }
+        }
+
+        .form3 {
+            bottom: 10%;
+            right: -300px;
+
+            @media (max-width: $breakpoint-tablet) {
+                right: -50%;
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+                width: 66vw;
+            }
+        }
+    }
+}

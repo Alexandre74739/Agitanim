@@ -25,7 +25,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/droits-reserves" element={<DroitsReserves />} />
-          <Route path="/inclusion/:slug" element={<HandicapDetail />} />
+          <Route path=".handicap" element={HandicapDetail}
         </Routes>
       </main>
 
