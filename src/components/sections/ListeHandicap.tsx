@@ -11,11 +11,11 @@ function ListeHandicap() {
       </Reveal>
       <Reveal>
         <CardInclusion />
-        <div className="forms">
-          <img src={form1} className="form1" alt="form" />
-          <img src={form1} className="form2" alt="form" />
-        </div>
       </Reveal>
+      <div className="forms">
+        <img src={form1} className="form1" alt="form" />
+        <img src={form1} className="form2" alt="form" />
+      </div>
     </section>
   );
 }
