@@ -131,7 +131,7 @@ function HandicapDetail() {
                     </Reveal>
                 </section>
 
-                {/* Section 5 */}
+                {/* S */}
                 <section className="final-action">
                     <Reveal>
                         <div className="action-card">

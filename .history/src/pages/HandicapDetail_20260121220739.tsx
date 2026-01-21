@@ -131,7 +131,7 @@ function HandicapDetail() {
                     </Reveal>
                 </section>
 
-                {/* Section 5 */}
+                {/* FOOTER ACTION */}
                 <section className="final-action">
                     <Reveal>
                         <div className="action-card">
@@ -140,7 +140,7 @@ function HandicapDetail() {
                             <Link to="/jeux" className="primary-btn">Lancer l'expérience</Link>
                         </div>
                     </Reveal>
-                </section>
+                </footer>
             </main>
         </section>
     );

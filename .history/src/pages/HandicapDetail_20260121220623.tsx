@@ -29,11 +29,8 @@ function HandicapDetail() {
     <div className="loader-container">
         <div className="loader"></div>
     </div>;
-    if (!data) return
-    <div className="error-container">
-        <h2>404</h2>
-        <Link to="/inclusion">Retourner à l'accueil</Link>
-    </div>;
+    if (!data) return 
+    <div className="error-container"><h2>404</h2><Link to="/inclusion">Retourner à l'accueil</Link></div>;
 
     return (
         <section className="handicap-detail-page">
@@ -60,7 +57,7 @@ function HandicapDetail() {
             </header>
 
             <main className="content-flow">
-                {/* Section 1 */}
+                {/* SECTION 01 : LA RÉALITÉ DU TERRAIN */}
                 <section className="section-narrative container">
                     <Reveal>
                         <div className="grid-narrative">
@@ -78,7 +75,7 @@ function HandicapDetail() {
                     </Reveal>
                 </section>
 
-                {/* Section 2 */}
+                {/* SECTION 02 : INTERLUDE CONSEILS */}
                 <div className="interlude-banner">
                     <div className="container">
                         <Reveal>
@@ -98,7 +95,7 @@ function HandicapDetail() {
                     </div>
                 </div>
 
-                {/* Section 3 */}
+                {/* SECTION 03 : DÉCONSTRUCTION */}
                 <section className="myth-section container">
                     <Reveal>
                         <div className="section-header-center">
@@ -121,7 +118,7 @@ function HandicapDetail() {
                     </Reveal>
                 </section>
 
-                {/* Section 4 */}
+                {/* SECTION 04 : LE SAVIEZ-VOUS / TRANSITION */}
                 <section className="did-you-know container">
                     <Reveal>
                         <div className="dyk-box">
@@ -131,8 +128,8 @@ function HandicapDetail() {
                     </Reveal>
                 </section>
 
-                {/* Section 5 */}
-                <section className="final-action">
+                {/* FOOTER ACTION */}
+                <footer className="final-action">
                     <Reveal>
                         <div className="action-card">
                             <h2>Envie de tester vos réflexes ?</h2>
@@ -140,7 +137,7 @@ function HandicapDetail() {
                             <Link to="/jeux" className="primary-btn">Lancer l'expérience</Link>
                         </div>
                     </Reveal>
-                </section>
+                </footer>
             </main>
         </section>
     );

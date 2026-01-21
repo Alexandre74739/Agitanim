@@ -1,0 +1,54 @@
+@import '../variables';
+
+.handicap-detail-page {
+  padding-top: 120px;
+  text-align: center; // Tout est centré par défaut
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 { @include typo-h1; color: $color-primary; margin-bottom: 10px; }
+  
+  .subtitle { 
+    @include typo-p; 
+    color: $color-accent; 
+    margin-bottom: 40px; 
+    font-style: italic;
+  }
+
+  .info-card {
+    background: $color-white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
+    h2 { @include typo-h2; margin-bottom: 15px; }
+    p { @include typo-p; font-weight: 400; color: $color-dark; }
+
+    &.highlight {
+      background-color: $color-bg-secondary;
+      border: 2px solid $color-secondary;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+
+    @media (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+    }
+
+    .btn-primary { @include typo-primary-btn; text-decoration: none; display: flex; align-items: center; justify-content: center;}
+    .btn-secondary { @include typo-secondary-btn; display: flex; align-items: center; justify-content: center;}
+  }
+}
