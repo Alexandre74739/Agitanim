@@ -17,11 +17,24 @@
         flex-direction: column;
         align-items: center;
         gap: 0px;
-        padding: 40px 0;
+        padding: 0;
 
         @media (max-width: $breakpoint-tablet) {
-            gap: 40px;
+            gap: 20px;
         }
+
+        .no-results {
+            text-align: center;
+        }
+    }
+
+    .actions-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px; 
+        margin-top: 0px;
+        width: 100%;
     }
 
     .primary-btn {

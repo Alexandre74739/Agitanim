@@ -30,7 +30,11 @@ interface ActivitesProps {
 }
 
 // CORRECTION : Extraction de showInfosBtn depuis les props
-function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = true }: ActivitesProps) {
+function Activites({
+  showLoadMore = true,
+  showInfosBtn = true,
+  showFiltres = true,
+}: ActivitesProps) {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
 
@@ -73,8 +77,13 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
 
       if (searchTerm) query = query.ilike("title", `%${searchTerm}%`);
 
-      query = query.lte("duration_min", minDuration).gte("duration_max", minDuration);
-      query = query.lte("age_min", targetAge).gte("age_max", targetAge);
+      // On ne filtre par âge/durée que si les filtres sont activés visuellement
+      if (showFiltres) {
+        query = query
+          .lte("duration_min", minDuration)
+          .gte("duration_max", minDuration);
+        query = query.lte("age_min", targetAge).gte("age_max", targetAge);
+      }
 
       const { data, error, count } = await query;
       if (error) throw error;
@@ -123,9 +132,11 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
       <Reveal>
         <div className="container">
           <h2>Projets et jeux</h2>
-          <p>Concevoir des activités est l’essence même du métier d’animateur.
+          <p>
+            Concevoir des activités est l’essence même du métier d’animateur.
             Chaque instant est pensé pour rythmer la journée et enrichir
-            l'expérience des enfants.</p>
+            l'expérience des enfants.
+          </p>
         </div>
       </Reveal>
 
@@ -165,7 +176,6 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
                   onChange={(e) => setMinDuration(Number(e.target.value))}
                 />
               </div>
-
             </div>
           </div>
         </Reveal>
@@ -182,14 +192,19 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
             </Reveal>
           ))
         ) : (
-          <p className="no-results">Aucune fiche ne correspond à vos critères.</p>
+          <p className="no-results">
+            Aucune fiche ne correspond à vos critères.
+          </p>
         )}
       </div>
 
       <div className="actions-area">
         {showInfosBtn && hasMore && activities.length > 0 && (
           <Reveal>
-            <button className="primary-btn" onClick={() => setLimit((prev) => prev + 3)}>
+            <button
+              className="primary-btn"
+              onClick={() => setLimit((prev) => prev + 3)}
+            >
               Je veux plus d'idées
             </button>
           </Reveal>
@@ -197,7 +212,11 @@ function Activites({ showLoadMore = true, showInfosBtn = true, showFiltres = tru
 
         {showLoadMore && (
           <Reveal>
-            <Link to="/jeux" className="primary-btn-link" onClick={() => window.scrollTo({ top: 0 })}>
+            <Link
+              to="/jeux"
+              className="primary-btn-link"
+              onClick={() => window.scrollTo({ top: 0 })}
+            >
               <button className="primary-btn secondary-style">
                 Explorer tout le catalogue
               </button>
