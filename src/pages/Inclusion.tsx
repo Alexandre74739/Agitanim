@@ -1,6 +1,7 @@
 import Hero from "../components/sections/Hero";
 import ListeHandicap from "../components/sections/ListeHandicap";
 import Separator from "../components/sections/Separator";
+import Retain from "../components/sections/Retain";
 
 const Inclusion = () => {
   return (
@@ -20,6 +21,7 @@ const Inclusion = () => {
         text="En centres de loisirs et en temps périscolaire, les équipes accueillent des enfants aux besoins très variés. Pourtant, les animateurs sont souvent peu formés, mal outillés, et se retrouvent seuls face à des situations complexes.
       Cette page est née d’un constat simple : mieux comprendre, c’est déjà mieux accompagner. Et personne ne devrait se sentir démuni sur le terrain."
       />
+      <Retain />
     </div>
   );
 };
