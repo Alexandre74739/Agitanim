@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "../utils/supabaseClient";
 import { Reveal } from "../components/layout/Reveal";
-
 import form1 from "../../src/assets/forme1.png";
 import form2 from "../../src/assets/forme2.png";
 import form3 from "../../src/assets/forme3.png";
@@ -14,6 +13,9 @@ function HandicapDetail() {
     const [data, setData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
 
+    const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
+
+    // Récupération des données
     useEffect(() => {
         window.scrollTo(0, 0);
         async function fetchHandicap() {
@@ -25,15 +27,58 @@ function HandicapDetail() {
         fetchHandicap();
     }, [slug]);
 
-    if (loading) return
-    <div className="loader-container">
-        <div className="loader"></div>
-    </div>;
-    if (!data) return
-    <div className="error-container">
-        <h2>404</h2>
-        <Link to="/inclusion">Retourner à l'accueil</Link>
-    </div>;
+    useEffect(() => {
+        const header = document.querySelector("header");
+
+        if (!header) return;
+
+        if (selectedPdf) {
+            header.style.display = "none";
+        } else {
+            header.style.display = "";
+        }
+
+        return () => {
+            header.style.display = "";
+        };
+    }, [selectedPdf]);
+
+    // Fonction de téléchargement
+    const handleDownload = async (pdfUrl: string, fileName: string) => {
+        try {
+            const filePath = pdfUrl.split("/public/medias/")[1];
+            const { data, error } = await supabase.storage
+                .from("medias")
+                .download(filePath);
+
+            if (error) throw error;
+
+            const url = window.URL.createObjectURL(data);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = `${fileName.replace(/\s+/g, "-").toLowerCase()}.pdf`;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            window.URL.revokeObjectURL(url);
+        } catch (err) {
+            console.error("Erreur de téléchargement:", err);
+            window.open(pdfUrl, "_blank");
+        }
+    };
+
+    if (loading) return (
+        <div className="loader-container">
+            <div className="loader"></div>
+        </div>
+    );
+
+    if (!data) return (
+        <div className="error-container">
+            <h2>404</h2>
+            <Link to="/inclusion">Retourner à l'accueil</Link>
+        </div>
+    );
 
     return (
         <section className="handicap-detail-page">
@@ -44,24 +89,27 @@ function HandicapDetail() {
                 <img src={form3} className="form4" alt="" />
             </div>
 
-            <header className="hero-editorial">
+            <div className="hero-editorial">
                 <div className="container">
                     <Reveal>
                         <div className="badge">Fiche Sensibilisation</div>
                         <h1>{data.title}</h1>
                         <p className="hero-subtitle">{data.subtitle}</p>
                         <div className="hero-cta-box">
-                            <a href={data.pdf_url} target="_blank" rel="noreferrer" className="primary-btn">
+                            <button
+                                onClick={() => setSelectedPdf(data.pdf_url)}
+                                className="primary-btn"
+                                style={{ border: 'none', cursor: 'pointer' }}
+                            >
                                 Obtenir la fiche mémo (PDF)
-                            </a>
+                            </button>
                         </div>
                     </Reveal>
                 </div>
-            </header>
+            </div>
 
-            <main className="content-flow">
-                {/* Section 1 */}
-                <section className="section-narrative container">
+            <div className="content-flow">
+                <div className="section-narrative container">
                     <Reveal>
                         <div className="grid-narrative">
                             <div className="text-content">
@@ -76,9 +124,8 @@ function HandicapDetail() {
                             </div>
                         </div>
                     </Reveal>
-                </section>
+                </div>
 
-                {/* Section 2 */}
                 <div className="interlude-banner">
                     <div className="container">
                         <Reveal>
@@ -98,8 +145,7 @@ function HandicapDetail() {
                     </div>
                 </div>
 
-                {/* Section 3 */}
-                <section className="myth-section container">
+                <div className="myth-section container">
                     <Reveal>
                         <div className="section-header-center">
                             <span className="step-num">02</span>
@@ -119,20 +165,18 @@ function HandicapDetail() {
                             </div>
                         </div>
                     </Reveal>
-                </section>
+                </div>
 
-                {/* Section 4 */}
-                <section className="did-you-know container">
+                <div className="did-you-know container">
                     <Reveal>
                         <div className="dyk-box">
                             <h3>Le saviez-vous ?</h3>
                             <p>Plus de 80% des handicaps sont invisibles. L'inclusion ne commence pas par un aménagement technique, mais par une écoute active et une bienveillance quotidienne.</p>
                         </div>
                     </Reveal>
-                </section>
+                </div>
 
-                {/* Section 5 */}
-                <section className="final-action">
+                <div className="final-action">
                     <Reveal>
                         <div className="action-card">
                             <h2>Envie de tester vos réflexes ?</h2>
@@ -140,8 +184,26 @@ function HandicapDetail() {
                             <Link to="/jeux" className="primary-btn">Lancer l'expérience</Link>
                         </div>
                     </Reveal>
-                </section>
-            </main>
+                </div>
+            </div>
+
+            {/* Modal aperçu PDF */}
+            {selectedPdf && (
+                <div className="modal-overlay" onClick={() => setSelectedPdf(null)}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <iframe
+                            src={`${selectedPdf}#view=FitH&toolbar=0&navpanes=0`}
+                            title="Aperçu de l'activité"
+                        />
+                        <button
+                            onClick={() => handleDownload(selectedPdf, "Mon-Activite")}
+                            className="download-btn"
+                        >
+                            Télécharger le PDF
+                        </button>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
