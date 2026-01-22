@@ -1,9 +1,11 @@
 @import '../../variables';
 
 .footer {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
+    z-index: 1000;
 
     .footer-divider {
         width: 100%;
