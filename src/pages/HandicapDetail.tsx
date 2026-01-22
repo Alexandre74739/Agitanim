@@ -82,13 +82,6 @@ function HandicapDetail() {
 
     return (
         <section className="handicap-detail-page">
-            <div className="forms">
-                <img src={form1} className="form1" alt="" />
-                <img src={form3} className="form2" alt="" />
-                <img src={form2} className="form3" alt="" />
-                <img src={form3} className="form4" alt="" />
-            </div>
-
             <div className="hero-editorial">
                 <div className="container">
                     <Reveal>
@@ -113,7 +106,6 @@ function HandicapDetail() {
                     <Reveal>
                         <div className="grid-narrative">
                             <div className="text-content">
-                                <span className="step-num">01</span>
                                 <h2>Comprendre la situation</h2>
                                 <p className="large-p">{data.description}</p>
                             </div>
@@ -148,7 +140,6 @@ function HandicapDetail() {
                 <div className="myth-section container">
                     <Reveal>
                         <div className="section-header-center">
-                            <span className="step-num">02</span>
                             <h2>Changer de regard</h2>
                             <p>On oublie les préjugés pour laisser place aux faits.</p>
                         </div>
@@ -204,6 +195,13 @@ function HandicapDetail() {
                     </div>
                 </div>
             )}
+
+            <div className="forms">
+                <img src={form1} className="form1" alt="" />
+                <img src={form3} className="form2" alt="" />
+                <img src={form2} className="form3" alt="" />
+                <img src={form3} className="form4" alt="" />
+            </div>
         </section>
     );
 }
