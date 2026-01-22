@@ -167,7 +167,6 @@ function HandicapDetail() {
                             </div>
                         </div>
                     </Reveal>
-
                 </div>
 
                 <div className="did-you-know container">
