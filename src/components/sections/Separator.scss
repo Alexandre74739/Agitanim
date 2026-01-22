@@ -30,7 +30,12 @@
         justify-content: center;
         align-items: center;
         gap: 20px;
+        padding: 0 5%;
         z-index: 10;
+
+        @media (max-width: $breakpoint-mobile) {
+            margin: -1px 0; // corrige un léger bug d'affichage sur mobile
+        }
 
         h2,
         p {
