@@ -147,7 +147,8 @@ function HandicapDetail() {
                                 En confrontant nos préjugés à la réalité des faits, nous déconstruisons
                                 les barrières pour construire un environnement plus juste et accessible à tous.</p>
                         </div>
-
+                    </Reveal>
+                    <Reveal>
                         <div
                             className={`myth-reality-card ${isSwapped ? 'change' : ''}`}
                             onClick={() => setIsSwapped(!isSwapped)}
@@ -166,6 +167,7 @@ function HandicapDetail() {
                             </div>
                         </div>
                     </Reveal>
+
                 </div>
 
                 <div className="did-you-know container">
@@ -189,22 +191,24 @@ function HandicapDetail() {
             </div>
 
             {/* Modal aperçu PDF */}
-            {selectedPdf && (
-                <div className="modal-overlay" onClick={() => setSelectedPdf(null)}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        <iframe
-                            src={`${selectedPdf}#view=FitH&toolbar=0&navpanes=0`}
-                            title="Aperçu de l'activité"
-                        />
-                        <button
-                            onClick={() => handleDownload(selectedPdf, "Mon-Activite")}
-                            className="download-btn"
-                        >
-                            Télécharger le PDF
-                        </button>
+            {
+                selectedPdf && (
+                    <div className="modal-overlay" onClick={() => setSelectedPdf(null)}>
+                        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                            <iframe
+                                src={`${selectedPdf}#view=FitH&toolbar=0&navpanes=0`}
+                                title="Aperçu de l'activité"
+                            />
+                            <button
+                                onClick={() => handleDownload(selectedPdf, "Mon-Activite")}
+                                className="download-btn"
+                            >
+                                Télécharger le PDF
+                            </button>
+                        </div>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             <div className="forms">
                 <img src={form1} className="form1" alt="" />
@@ -212,7 +216,7 @@ function HandicapDetail() {
                 <img src={form2} className="form3" alt="" />
                 <img src={form3} className="form4" alt="" />
             </div>
-        </section>
+        </section >
     );
 }
 
