@@ -201,7 +201,7 @@
             background-color: rgba($color-bg-soft, 0.8);
             padding: 100px 0;
             margin: 40px 0;
-            
+
 
             .interlude-grid {
                 display: grid;
@@ -252,87 +252,102 @@
             }
         }
 
-        // MYTH SECTION
+        // Myth section
         .myth-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 100px 0;
+            transition: 0.3s ease-in-out;
 
             .section-header-center {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 text-align: center;
-                margin-bottom: 60px;
+                margin-bottom: 32px;
 
-                h2 {
-                    @include typo-h2;
-                    margin-top: 10px;
+                p {
+                    max-width: $breakpoint-mobile;
                 }
             }
 
             .myth-reality-card {
                 display: flex;
-                background: white;
-                border-radius: 45px;
-                box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
+                background: $color-white;
+                border-radius: 25px;
+                box-shadow: 0 0 12px $color-bg-soft;
                 overflow: hidden;
 
                 @media (max-width: $breakpoint-tablet) {
                     flex-direction: column;
+                    margin: 0 5%;
                 }
 
                 .myth-side,
                 .reality-side {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
                     flex: 1;
                     padding: clamp(40px, 6vw, 80px);
+                    transition: 0.3s ease-in-out;
 
                     .card-label {
-                        font-weight: 900;
                         text-transform: uppercase;
-                        font-size: 11px;
+                        font-family: $main-font;
+                        font-size: 16px;
                         margin-bottom: 24px;
-                        letter-spacing: 2px;
                         display: block;
                     }
 
                     p {
                         font-size: clamp(20px, 3vw, 28px);
-                        font-weight: 700;
-                        line-height: 1.3;
+                        line-height: 1.25;
                     }
                 }
 
                 .myth-side {
-                    background: #fff;
-                    color: #cc0000;
-
-                    .card-label {
-                        opacity: 0.5;
-                    }
+                    background-color: $color-white;
                 }
 
                 .reality-side {
                     background: $color-secondary;
                     color: $color-primary;
 
-                    .card-label {
-                        opacity: 0.6;
-                    }
                 }
 
                 .divider-icon {
-                    width: 60px;
-                    height: 60px;
-                    background: $color-primary;
+                    width: 80px;
+                    height: 80px;
+                    background-color: $color-primary;
+                    font-family: $main-font;
                     color: $color-secondary;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-weight: 900;
+                    font-weight: bold;
                     align-self: center;
-                    border-radius: 50%;
-                    border: 6px solid $color-white;
+                    border-radius: 100%;
+                    border: 8px solid $color-white;
                     z-index: 10;
                     margin: 0 -30px;
 
                     @media (max-width: $breakpoint-tablet) {
                         margin: -30px 0;
+                    }
+                }
+
+                &.change {
+                    .myth-side {
+                        background: $color-secondary;
+                        color: $color-primary;
+                    }
+
+                    .reality-side {
+                        background-color: $color-white;
                     }
                 }
             }

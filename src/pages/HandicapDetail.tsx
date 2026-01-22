@@ -12,6 +12,7 @@ function HandicapDetail() {
     const { slug } = useParams<{ slug: string }>();
     const [data, setData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
+    const [isSwapped, setIsSwapped] = useState(false);
 
     const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
 
@@ -137,19 +138,28 @@ function HandicapDetail() {
                     </div>
                 </div>
 
-                <div className="myth-section container">
+                <div
+                    className={"myth-section container"}>
                     <Reveal>
                         <div className="section-header-center">
                             <h2>Changer de regard</h2>
-                            <p>On oublie les préjugés pour laisser place aux faits.</p>
+                            <p>Les idées reçues sont souvent le premier frein à l'inclusion.
+                                En confrontant nos préjugés à la réalité des faits, nous déconstruisons
+                                les barrières pour construire un environnement plus juste et accessible à tous.</p>
                         </div>
 
-                        <div className="myth-reality-card">
+                        <div
+                            className={`myth-reality-card ${isSwapped ? 'change' : ''}`}
+                            onClick={() => setIsSwapped(!isSwapped)}
+                            style={{ cursor: 'pointer' }}
+                        >
                             <div className="myth-side">
                                 <div className="card-label">Le Mythe</div>
                                 <p>"{data.myth_text}"</p>
                             </div>
+
                             <div className="divider-icon">VS</div>
+
                             <div className="reality-side">
                                 <div className="card-label">La Réalité</div>
                                 <p>{data.reality_text}</p>
