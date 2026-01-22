@@ -181,9 +181,15 @@ function HandicapDetail() {
                 <div className="final-action">
                     <Reveal>
                         <div className="action-card">
-                            <h2>Envie de tester vos réflexes ?</h2>
-                            <p>Mettez en pratique ce que vous venez d'apprendre via nos scénarios interactifs.</p>
-                            <Link to="/jeux" className="primary-btn">Lancer l'expérience</Link>
+                            <h2>Prêt à passer de la théorie à l'action ?</h2>
+                            <p>Transformez votre regard en actions : découvrez nos ressources ludiques et pédagogiques conçues pour rendre l'inclusion accessible à tous les publics.</p>
+                            <Link
+                                to="/jeux"
+                                className="primary-btn-link"
+                                onClick={() => window.scrollTo({ top: 0 })}
+                            >
+                                <button className="primary-btn">Trouver l'activité idéale</button>
+                            </Link>
                         </div>
                     </Reveal>
                 </div>

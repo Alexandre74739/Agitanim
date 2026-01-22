@@ -9,7 +9,7 @@ function Buttons() {
         className="primary-btn-link"
         onClick={() => window.scrollTo({ top: 0 })}
       >
-        <button className="primary-btn">Projets & Jeux</button>
+        <button className="primary-btn">Explorer les activités</button>
       </Link>
 
       <Link
@@ -17,7 +17,7 @@ function Buttons() {
         className="secondary-btn-link"
         onClick={() => window.scrollTo({ top: 0 })}
       >
-        <button className="secondary-btn">Handicap & Inclusion</button>
+        <button className="secondary-btn">Comprendre le handicap</button>
       </Link>
     </div>
   );
