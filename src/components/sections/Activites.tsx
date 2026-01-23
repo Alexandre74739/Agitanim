@@ -200,28 +200,24 @@ function Activites({
 
       <div className="actions-area">
         {showInfosBtn && hasMore && activities.length > 0 && (
-          <Reveal>
-            <button
-              className="primary-btn"
-              onClick={() => setLimit((prev) => prev + 3)}
-            >
-              Je veux plus d'idées
-            </button>
-          </Reveal>
+          <button
+            className="primary-btn"
+            onClick={() => setLimit((prev) => prev + 3)}
+          >
+            Je veux plus d'idées
+          </button>
         )}
 
         {showLoadMore && (
-          <Reveal>
-            <Link
-              to="/jeux"
-              className="primary-btn-link"
-              onClick={() => window.scrollTo({ top: 0 })}
-            >
-              <button className="primary-btn secondary-style">
-                Explorer tout le catalogue
-              </button>
-            </Link>
-          </Reveal>
+          <Link
+            to="/jeux"
+            className="primary-btn-link"
+            onClick={() => window.scrollTo({ top: 0 })}
+          >
+            <button className="primary-btn secondary-style">
+              Explorer tout le catalogue
+            </button>
+          </Link>
         )}
       </div>
 
