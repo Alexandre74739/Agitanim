@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 80px;
-    overflow: hidden;
+    overflow: hidden; 
 
     .container p {
         width: 100%;
@@ -61,7 +61,7 @@
         }
 
         .form1 {
-            top: 10%;
+            top: 15%;
             left: -280px;
             transform: translateY(-50%);
 
@@ -74,6 +74,7 @@
             }
 
             @media (max-width: $breakpoint-mobile) {
+                top: 10%;
                 width: 55vw;
                 left: -40%;
             }
@@ -99,7 +100,7 @@
         }
 
         .form3 {
-            bottom: -15%;
+            bottom: -5%;
             right: -280px;
             transform: translateY(-50%);
 
@@ -113,6 +114,7 @@
             }
 
             @media (max-width: $breakpoint-mobile) {
+                bottom: 0;
                 width: 55vw;
                 right: -40%;
             }
