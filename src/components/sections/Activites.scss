@@ -51,6 +51,12 @@
         pointer-events: none;
         z-index: -1000;
 
+        &.fewer-content {
+        .form1, .form3 {
+            display: none;
+        }
+    }
+
         .form1,
         .form2,
         .form3,

@@ -221,7 +221,7 @@ function Activites({
         )}
       </div>
 
-      <div className="forms">
+      <div className={`forms ${activities.length <= 1 ? 'fewer-content' : ''}`}>
         <img src={form1} className="form1" alt="form" />
         <img src={form3} className="form2" alt="form" />
         <img src={form2} className="form3" alt="form" />
